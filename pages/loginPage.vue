@@ -1,29 +1,30 @@
 <template>
-    <main class="form-signin">
-        <div class="card">
+    <main class="form-signin main">
+        <div class="card ">
                <div class="card-body mt-n1">
-                    <form>
+                    <form @submit.prevent="login">
                         <h2 class="h3 mb-3 fw-normal text-center">Faça o Login</h2>
 
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control form-control-lg" placeholder="Email" />
+                            <input type="email" required class="form-control form-control-lg" placeholder="Email" />
                             
                         </div>
 
                         <div class="form-group">
                             <label>Senha</label>
-                            <input type="password" class="form-control form-control-lg" placeholder="Password"/>
+                            <input type="password" required class="form-control form-control-lg" placeholder="Password"/>
                             
                         </div>
 
-                        <router-link class="w-100 btn btn-lg btn-primary botao" type="submit" to="/signup">Entrar</router-link>
+                        <b-button class="w-100 btn btn-lg btn-primary botao" type="submit">Entrar</b-button>
+
+                        <b-checkbox>Esqueci minha senha</b-checkbox>
 
                     </form>
 
                 </div>
         </div>
-        <p class="mt-3 mb-3 text-muted text-center">© 2022</p>
     </main>
     
 </template>
@@ -34,12 +35,19 @@ export default{
         email: '',
         password: '',
     }),
+
+    methods: {
+        login(){
+            alert('login')
+        }
+    }
 }
 </script>
 
 <style>
-   
-
+   .main{
+       width: 100vw;
+   }
     .botao{
         width: 6.0rem !important;
         min-width: 320px !important;
