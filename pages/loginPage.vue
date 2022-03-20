@@ -19,7 +19,7 @@
 
                         <b-button class="w-100 btn btn-lg btn-primary botao" type="submit">Entrar</b-button>
 
-                        <b-checkbox>Esqueci minha senha</b-checkbox>
+                        <b-checkbox class="senha">Esqueci minha senha</b-checkbox>
 
                     </form>
 
@@ -54,7 +54,6 @@ export default{
         max-width: 800px !important;
         margin-top: 2% !important;
         
-
     }
     .mt-n1 {
         margin-left: auto !important;
@@ -66,5 +65,9 @@ export default{
         margin-top: 15% !important;
         margin-bottom: 15% !important;
     }
+    .senha{
+        margin-top: 7% !important;
+    }
+    
 
 </style>
