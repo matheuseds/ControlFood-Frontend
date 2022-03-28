@@ -74,6 +74,17 @@
                     required 
                   />
                 </div>
+                   <div class="form-group">
+                  <label for="email">Nome do Responsável:</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="nome"
+                    id="nomeResponsavel"
+                    placeholder="Nome da Empresa"
+                    required 
+                  />
+                </div>
                 <div class="form-group">
                   <label for="email">Contato do Responsável:</label>
                   <input
@@ -91,7 +102,7 @@
                     type="text"
                     class="form-control"
                     id="endereco"
-                    placeholder="Rua dos Bobos, nº 0"
+                    placeholder="Rua Major Gote, n° 808"
                     required 
                   />
                 </div>
