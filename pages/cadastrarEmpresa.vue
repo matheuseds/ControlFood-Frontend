@@ -53,13 +53,13 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="email">Nome:</label>
+                  <label for="email">Nome da empresa:</label>
                   <input
                     class="form-control"
                     type="text"
                     name="nome"
                     id="nomeEmpresa"
-                    placeholder="Nome"
+                    placeholder="Nome da Empresa"
                     required 
                   />
                 </div>
