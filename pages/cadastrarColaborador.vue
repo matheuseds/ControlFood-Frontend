@@ -99,14 +99,15 @@
                 </div>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" id="foto" />
-                  <label class="custom-file-label" for="customFile"
+                  <label class="custom-file-label foto" for="customFile"
                     >Enviar Foto</label
                   >
                 </div>
                 <div class="form-group text-center botao">
-                  <button type="submit" class="btn btn-primary" required>ENVIAR</button>
+                  <button type="submit" class="btn btn-dark" required>
+                    ENVIAR
+                  </button>
                 </div>
-                
               </form>
             </div>
           </div>
@@ -132,12 +133,15 @@ export default {
 </script>
 
 <style>
-
-.botao{
-    margin-top: 3%;
+.botao {
+  margin-top: 7%;
+  
 }
-.row{
-    margin-top: 5%;
-    justify-content: center;
+.row {
+  margin-top: 5%;
+  justify-content: center;
+}
+.foto{
+  margin-top: 2%;
 }
 </style>
