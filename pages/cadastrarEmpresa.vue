@@ -49,7 +49,7 @@
                     name="nome"
                     id="cnpj"
                     placeholder="CNPJ"
-                    required 
+                    required
                   />
                 </div>
                 <div class="form-group">
@@ -60,7 +60,7 @@
                     name="nome"
                     id="nomeEmpresa"
                     placeholder="Nome da Empresa"
-                    required 
+                    required
                   />
                 </div>
                 <div class="form-group">
@@ -71,10 +71,10 @@
                     name="email"
                     id="emailEmpresa"
                     placeholder="E-mail"
-                    required 
+                    required
                   />
                 </div>
-                   <div class="form-group">
+                <div class="form-group">
                   <label for="email">Nome do Responsável:</label>
                   <input
                     class="form-control"
@@ -82,7 +82,7 @@
                     name="nome"
                     id="nomeResponsavel"
                     placeholder="Nome da Empresa"
-                    required 
+                    required
                   />
                 </div>
                 <div class="form-group">
@@ -93,7 +93,7 @@
                     name="nome"
                     id="contatoEmpresa"
                     placeholder="Contato do Responsável"
-                    required 
+                    required
                   />
                 </div>
                 <div class="form-group">
@@ -103,26 +103,42 @@
                     class="form-control"
                     id="endereco"
                     placeholder="Rua Major Gote, n° 808"
-                    required 
+                    required
                   />
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCity">Cidade</label>
-                    <input type="text" class="form-control" id="cidade" required />
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cidade"
+                      placeholder="Patos de Minas"
+                      required
+                    />
                   </div>
                   <div class="form-group col-md-3">
                     <label for="inputEstado">Estado</label>
-                    <input type="text" class="form-control" id="estado" required  />
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="estado"
+                      placeholder="MG"
+                      required
+                    />
                   </div>
                   <div class="form-group col-md-4">
                     <label for="inputCEP">CEP</label>
-                    <input type="text" class="form-control" id="cep" required />
+                    <input type="text" 
+                    class="form-control" 
+                    id="cep" 
+                    placeholder="38702-054"
+                    required />
                   </div>
                 </div>
 
                 <div class="form-group text-center">
-                  <button type="submit" class="btn btn-primary">ENVIAR</button>
+                  <button type="submit" class="btn btn-dark">ENVIAR</button>
                 </div>
               </form>
             </div>
@@ -150,7 +166,7 @@ export default {
 
 <style>
 .row {
-  margin-top: 5%;
+  margin-top: 3%;
   justify-content: center;
 }
 </style>
