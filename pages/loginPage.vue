@@ -17,7 +17,8 @@
                             
                         </div>
 
-                        <b-button class="w-100 btn btn-lg btn-primary botao" type="submit">Entrar</b-button>
+                        <b-button class="w-100 btn btn-lg btn-dark botao" type="submit">Entrar</b-button>
+                         <b-button class="w-100 btn btn-lg btn-dark botao" >Cadastrar</b-button>
 
                         <b-checkbox class="senha">Esqueci minha senha</b-checkbox>
 
@@ -50,8 +51,8 @@ export default{
    }
     .botao{
         width: 6.0rem !important;
-        min-width: 320px !important;
-        max-width: 800px !important;
+        min-width: 150px !important;
+        max-width: 400px !important;
         margin-top: 2% !important;
         
     }
