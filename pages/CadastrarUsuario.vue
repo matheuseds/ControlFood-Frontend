@@ -34,7 +34,15 @@
               placeholder="Password"
             />
           </div>
-         
+           <div class="form-group">
+            <label>Senha</label>
+            <input
+              type="password"
+              required
+              class="form-control form-control-lg"
+              placeholder="Password"
+            />
+          </div>
 
           <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
             >Cadastrar</b-button
