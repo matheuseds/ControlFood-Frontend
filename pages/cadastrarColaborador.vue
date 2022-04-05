@@ -1,7 +1,8 @@
 <template>
   <main>
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Control Food</a>
+     <NuxtLink to="/dashboardSite" class="navbar-brand" >Control Food</NuxtLink>
+
       <button
         class="navbar-toggler"
         type="button"
@@ -17,24 +18,16 @@
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Cadastrar Empresa <span class="sr-only">(current)</span></a
-            >
+            <NuxtLink to="/cadastrarEmpresa" class="nav-link" >Cadastrar Empresas</NuxtLink>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Cadastrar Colaborador <span class="sr-only">(current)</span></a
-            >
+            <NuxtLink to="/cadastrarColaborador" class="nav-link" >Cadastrar Colaborador</NuxtLink>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Listar Colaboradores <span class="sr-only">(current)</span></a
-            >
+            <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Relatório <span class="sr-only">(current)</span></a
-            >
+            <NuxtLink to="/relatoriosGeral" class="nav-link" >Relatorios</NuxtLink>
           </li>
         </ul>
       </div>

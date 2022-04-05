@@ -1,7 +1,7 @@
 <template>
   <main>
-   <nav class="navbar navbar-expand navbar-dark bg-dark">
-     <NuxtLink to="/dashboardSite" class="navbar-brand" >Control Food</NuxtLink>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
 
       <button
         class="navbar-toggler"
@@ -18,21 +18,29 @@
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarEmpresa" class="nav-link" >Cadastrar Empresas</NuxtLink>
+            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
+              >Cadastrar Empresas</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarColaborador" class="nav-link" >Cadastrar Colaborador</NuxtLink>
+            <NuxtLink to="/cadastrarColaborador" class="nav-link"
+              >Cadastrar Colaborador</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
+            <NuxtLink to="/listarColaboradores" class="nav-link"
+              >Listar Colaboradores</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatoriosGeral" class="nav-link" >Relatorios</NuxtLink>
+            <NuxtLink to="/relatoriosGeral" class="nav-link"
+              >Relatorios</NuxtLink
+            >
           </li>
         </ul>
       </div>
     </nav>
-    
+
     <div class="input-group pesquisa">
       <div class="pesquisa">
         <input type="search" id="form1" class="form-control" />
@@ -53,17 +61,22 @@
       </button>
     </div>
 
-    <h1 class="titulo">Colaboradores Cadastrados</h1>
+    <div class="row">
+      <div>
+        <button type="button" class="btn btn-dark botao">Imprimir</button>
+      </div>
+
+    </div>
+
     <div class="container">
       <table class="table">
         <thead class="table-dark">
           <tr>
             <th>#</th>
             <th>Nome</th>
+            <th>Nome Empresa</th>
             <th>CPF</th>
-            <th>Empresa</th>
-            <th>E-mail</th>
-            <th>Nº Matricula</th>
+            <th>Total de Refeições</th>
           </tr>
         </thead>
 
@@ -71,66 +84,58 @@
           <tr>
             <td>0001</td>
             <td>Nome</td>
-            <td>34549689501</td>
-            <td>Empresa</td>
-            <td>28/03/2022</td>
-            <td>123454356</td>
+            <td>Nome Empresa</td>
+            <td>303.810.860-03</td>
+            <td>20</td>
           </tr>
           <tr>
             <td>0002</td>
             <td>Nome</td>
-            <td>34549689501</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
+            <td>Nome Empresa</td>
+            <td>303.810.860-03</td>
+            <td>20</td>
           </tr>
           <tr>
             <td>0003</td>
             <td>Nome</td>
-            <td>34549689501</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
+            <td>Nome Empresa</td>
+            <td>303.810.860-03</td>
+            <td>20</td>
           </tr>
           <tr>
             <td>0004</td>
             <td>Nome</td>
-            <td>34549689501</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
+            <td>Nome Empresa</td>
+            <td>303.810.860-03</td>
+            <td>20</td>
           </tr>
           <tr>
             <td>0005</td>
             <td>Nome</td>
-            <td>34549689501</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
+            <td>Nome Empresa</td>
+            <td>303.810.860-03</td>
+            <td>20</td>
           </tr>
           <tr>
             <td>0006</td>
             <td>Nome</td>
-            <td>34549689501</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
+            <td>Nome Empresa</td>
+            <td>303.810.860-03</td>
+            <td>20</td>
           </tr>
           <tr>
             <td>0007</td>
             <td>Nome</td>
-            <td>34549689501</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
+            <td>Nome Empresa</td>
+            <td>303.810.860-03</td>
+            <td>20</td>
           </tr>
           <tr>
             <td>0008</td>
             <td>Nome</td>
-            <td>34549689501</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
+            <td>Nome Empresa</td>
+            <td>303.810.860-03</td>
+            <td>20</td>
           </tr>
         </tbody>
       </table>
@@ -143,14 +148,6 @@ export default {}
 </script>
 
 <style>
-.card {
-  display: inline-block;
-  margin-top: 2%;
-  margin-left: 5%;
-  margin-right: 5%;
-  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.459);
-}
-
 .titulo {
   margin-top: 2%;
   text-align: center;
@@ -165,16 +162,13 @@ export default {}
 .form-control {
   margin-bottom: 3%;
 }
-.row {
-  justify-content: center;
-}
 
 .icons {
   margin-left: 38%;
 }
 
-.card-text {
-  text-align: center;
-  font-weight: bold;
+.botao{
+    margin-bottom: 10%;
+    text-align: left;
 }
 </style>
