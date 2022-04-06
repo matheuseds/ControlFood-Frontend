@@ -27,7 +27,7 @@
             <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatoriosGeral" class="nav-link" >Relatorios</NuxtLink>
+            <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
           </li>
         </ul>
       </div>
@@ -98,7 +98,7 @@
       </div>
     </div>
 
-    <div class="input-group pesquisa">
+    <div class=" container input-group pesquisa">
       <div class="pesquisa">
         <input type="search" id="form1" class="form-control" />
       </div>
@@ -192,11 +192,11 @@ export default {}
 <style>
 .card {
   display: inline-block;
-  margin-top: 2%;
+  margin-top: 1% !important;
   margin-left: 5%;
   margin-right: 5%;
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.459);
-  border-left: 4px solid rgba(26, 152, 224, 0.822);
+  border-left: 4px solid #007BFF;
 }
 
 .titulo {

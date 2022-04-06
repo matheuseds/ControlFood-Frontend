@@ -33,7 +33,7 @@
             >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatoriosGeral" class="nav-link"
+            <NuxtLink to="/relatorioGeral" class="nav-link"
               >Relatorios</NuxtLink
             >
           </li>
@@ -41,7 +41,7 @@
       </div>
     </nav>
 
-    <div class="input-group pesquisa">
+    <div class=" container input-group pesquisa">
       <div class="pesquisa">
         <input type="search" id="form1" class="form-control" />
       </div>
@@ -64,8 +64,21 @@
     <div class="row">
       <div>
         <button type="button" class="btn btn-dark botao">Imprimir</button>
+        <div class="row">
+        <b-dropdown
+          id="dropdown-1"
+          text="Empresas"
+          class="m-md-2 dropdown"
+          variant="dark"
+        >
+          <b-dropdown-item>Empresa 1</b-dropdown-item>
+          <b-dropdown-item>Empresa 2</b-dropdown-item>
+          <b-dropdown-item>Empresa 3</b-dropdown-item>
+         
+        </b-dropdown>
       </div>
-
+      </div>
+      
     </div>
 
     <div class="container">
@@ -167,8 +180,8 @@ export default {}
   margin-left: 38%;
 }
 
-.botao{
-    margin-bottom: 10%;
-    text-align: left;
-}
+.dropdown {
+  margin-bottom: 10% !important;
+  width: 84%;
+  }
 </style>

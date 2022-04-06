@@ -27,13 +27,13 @@
             <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatoriosGeral" class="nav-link" >Relatorios</NuxtLink>
+            <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
           </li>
         </ul>
       </div>
     </nav>
     
-    <div class="input-group pesquisa">
+    <div class="container input-group pesquisa">
       <div class="pesquisa">
         <input type="search" id="form1" class="form-control" />
       </div>

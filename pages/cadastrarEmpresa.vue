@@ -27,7 +27,7 @@
             <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatoriosGeral" class="nav-link" >Relatorios</NuxtLink>
+            <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
           </li>
         </ul>
       </div>
@@ -164,7 +164,6 @@ export default {
 
 <style>
 .row {
-  margin-top: 3%;
   justify-content: center;
 }
 </style>

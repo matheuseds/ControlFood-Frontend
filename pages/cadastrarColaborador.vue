@@ -27,7 +27,7 @@
             <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatoriosGeral" class="nav-link" >Relatorios</NuxtLink>
+            <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
           </li>
         </ul>
       </div>
@@ -55,9 +55,9 @@
                   <input
                     class="form-control"
                     type="text"
-                    name="email"
-                    id="emailColaborador"
-                    placeholder="E-mail"
+                    name="cpf"
+                    id="cpf"
+                    placeholder="303.810.860-03"
                     required
                   />
                 </div>
@@ -95,13 +95,8 @@
                     required
                   />
                 </div>
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="foto" />
-                  <label class="custom-file-label foto" for="customFile"
-                    >Enviar Foto</label
-                  >
-                </div>
-                <div class="form-group text-center botao">
+                
+                <div class=" container form-group text-center botao">
                   <button type="submit" class="btn btn-dark" required>
                     ENVIAR
                   </button>
@@ -139,7 +134,5 @@ export default {
   margin-top: 5%;
   justify-content: center;
 }
-.foto{
-  margin-top: 2%;
-}
+
 </style>
