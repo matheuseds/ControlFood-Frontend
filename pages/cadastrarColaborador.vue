@@ -58,6 +58,7 @@
                     name="cpf"
                     id="cpf"
                     placeholder="303.810.860-03"
+                    v-maska="'###.###.###-##'"
                     required
                   />
                 </div>
@@ -111,7 +112,12 @@
 </template>
 
 <script>
+
+import { maska } from 'maska'
+
 export default {
+    directives: { maska },
+
   data: () => ({
     email: '',
     password: '',

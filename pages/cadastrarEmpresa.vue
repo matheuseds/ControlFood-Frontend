@@ -47,6 +47,7 @@
                     name="nome"
                     id="cnpj"
                     placeholder="CNPJ"
+                    v-maska="'##.###.###/####-##'"
                     required
                   />
                 </div>
@@ -131,6 +132,7 @@
                     class="form-control" 
                     id="cep" 
                     placeholder="38702-054"
+                    v-maska="'#####-###'"
                     required />
                   </div>
                 </div>
@@ -148,8 +150,13 @@
 </template>
 
 <script>
+
+import { maska } from 'maska'
+
 export default {
-  data: () => ({
+    directives: { maska },
+
+    data: () => ({
     email: '',
     password: '',
   }),
