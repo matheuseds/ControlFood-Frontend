@@ -162,6 +162,11 @@ export default {}
   margin-left: 38%;
 }
 
+.botao{
+ 
+  width: 110%;
+}
+
 .dropdown {
   margin-bottom: 10% !important;
   width: 84%;

@@ -123,12 +123,13 @@
                       class="form-control"
                       id="estado"
                       placeholder="MG"
+                      v-maska="'##'"
                       required
                     />
                   </div>
                   <div class="form-group col-md-4">
                     <label for="inputCEP">CEP</label>
-                    <input type="text" 
+                    <input type="number" 
                     class="form-control" 
                     id="cep" 
                     placeholder="38702-054"
@@ -157,8 +158,14 @@ export default {
     directives: { maska },
 
     data: () => ({
-    email: '',
-    password: '',
+     cadastrarEmpresa:{ 
+      nome:'',
+      cpf:'',
+      nomeEmpresa:'',
+      email:'',
+      numeroMatricula:''
+
+    }
   }),
 
   methods: {

@@ -51,7 +51,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="text">CPF:</label>
+                  <label for="number">CPF:</label>
                   <input
                     class="form-control"
                     type="text"
@@ -119,8 +119,18 @@ export default {
     directives: { maska },
 
   data: () => ({
-    email: '',
-    password: '',
+    cadastrarColaborador:{ 
+      cnpj:'',
+      nome:'',
+      email:'',
+      nomeResponsavel:'',
+      ContatoResponsavel:'',
+      endereco:'',
+      cidade:'',
+      estado:'',
+      cep:'',
+
+    }
   }),
 
   methods: {
