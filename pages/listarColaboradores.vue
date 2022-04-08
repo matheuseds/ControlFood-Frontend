@@ -58,7 +58,7 @@
       <table class="table">
         <thead class="table-dark">
           <tr>
-            <th>#</th>
+            <th>Id</th>
             <th>Nome</th>
             <th>CPF</th>
             <th>Empresa</th>
