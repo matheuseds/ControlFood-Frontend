@@ -123,7 +123,7 @@
                       class="form-control"
                       id="estado"
                       placeholder="MG"
-                      v-maska="'##'"
+                      v-maska="'AA'"
                       required
                     />
                   </div>
