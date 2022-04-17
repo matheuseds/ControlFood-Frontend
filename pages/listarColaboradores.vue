@@ -1,7 +1,7 @@
 <template>
   <main>
-   <nav class="navbar navbar-expand navbar-dark bg-dark">
-     <NuxtLink to="/dashboardSite" class="navbar-brand" >Control Food</NuxtLink>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
 
       <button
         class="navbar-toggler"
@@ -18,21 +18,29 @@
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarEmpresa" class="nav-link" >Cadastrar Empresas</NuxtLink>
+            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
+              >Cadastrar Empresas</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarColaborador" class="nav-link" >Cadastrar Colaborador</NuxtLink>
+            <NuxtLink to="/cadastrarColaborador" class="nav-link"
+              >Cadastrar Colaborador</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
+            <NuxtLink to="/listarColaboradores" class="nav-link"
+              >Listar Colaboradores</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
+            <NuxtLink to="/relatorioGeral" class="nav-link"
+              >Relatorios</NuxtLink
+            >
           </li>
         </ul>
       </div>
     </nav>
-    
+
     <div class="container input-group pesquisa">
       <div class="pesquisa">
         <input type="search" id="form1" class="form-control" />
@@ -57,7 +65,7 @@
     <div class="container">
       <table class="table">
         <thead class="table-dark">
-          <tr>
+          <tr >
             <th>Id</th>
             <th>Nome</th>
             <th>CPF</th>
@@ -68,69 +76,13 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>0001</td>
-            <td>Nome</td>
-            <td>303.810.860-03</td>
-            <td>Empresa</td>
-            <td>28/03/2022</td>
-            <td>123454356</td>
-          </tr>
-          <tr>
-            <td>0002</td>
-            <td>Nome</td>
-            <td>303.810.860-03</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
-          </tr>
-          <tr>
-            <td>0003</td>
-            <td>Nome</td>
-            <td>303.810.860-03</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
-          </tr>
-          <tr>
-            <td>0004</td>
-            <td>Nome</td>
-            <td>303.810.860-03</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
-          </tr>
-          <tr>
-            <td>0005</td>
-            <td>Nome</td>
-            <td>303.810.860-03</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
-          </tr>
-          <tr>
-            <td>0006</td>
-            <td>Nome</td>
-            <td>303.810.860-03</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
-          </tr>
-          <tr>
-            <td>0007</td>
-            <td>Nome</td>
-            <td>303.810.860-03</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
-          </tr>
-          <tr>
-            <td>0008</td>
-            <td>Nome</td>
-            <td>303.810.860-03</td>
-            <td>Empresa</td>
-            <td>marthe3347@uorak.com</td>
-            <td>123454356</td>
+          <tr v-for="lista in listas" :key="lista.id">
+            <td>{{lista.id}}</td>
+            <td>{{lista.nome }}</td>
+            <td>{{lista.CPF }}</td>
+            <td>{{lista.empresa }}</td>
+            <td>{{lista.email }}</td>
+            <td>{{lista.matricula }}</td>
           </tr>
         </tbody>
       </table>
@@ -139,9 +91,29 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => ({
+    listas: [
+      {
+        id: 1,
+        nome: 'Nome',
+        CPF: '303.810.860-03',
+        empresa: 'Empresa',
+        email: 'marthe3347@uorak.com',
+        matricula: '123454356',
+      },
+      {
+        id: 2,
+        nome: 'Nome',
+        CPF: '303.810.860-03',
+        empresa: 'Empresa',
+        email: 'marthe3347@uorak.com',
+        matricula: '123454356',
+      },
+    ],
+  }),
+}
 </script>
-
 <style>
 .card {
   display: inline-block;

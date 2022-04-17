@@ -127,15 +127,7 @@
                       required
                     />
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputCEP">CEP</label>
-                    <input type="number" 
-                    class="form-control" 
-                    id="cep" 
-                    placeholder="38702-054"
-                    v-maska="'#####-###'"
-                    required />
-                  </div>
+                  
                 </div>
 
                 <div class="form-group text-center">

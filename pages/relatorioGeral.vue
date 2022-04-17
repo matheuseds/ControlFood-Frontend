@@ -75,63 +75,17 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody v-for="relatorio in relatorios" :key="relatorio.id">
           <tr>
-            <td>0001</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
+            <td>{{relatorio.id}}</td>
+            <td>{{relatorio.nome}}</td>
+            <td>{{relatorio.empresa}}</td>
+            <td>{{relatorio.CPF}}</td>
+            <td>{{relatorio.refeicoes}}</td>
           </tr>
-          <tr>
-            <td>0002</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0003</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0004</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0005</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0006</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0007</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0008</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
+       
+     
+          
         </tbody>
       </table>
     </div>
@@ -139,7 +93,26 @@
 </template>
 
 <script>
-export default {}
+export default {
+   data: () => ({
+    relatorios: [
+      {
+        id: 1,
+        nome: 'Nome',
+        empresa: 'Empresa',
+        CPF: '303.810.860-03',
+        refeicoes:'20',
+      },
+      {
+        id: 2,
+        nome: 'Nome',
+        empresa: 'Empresa',
+        CPF: '303.810.860-03',
+        refeicoes:'20',
+      },
+    ],
+  }),
+}
 </script>
 
 <style>
