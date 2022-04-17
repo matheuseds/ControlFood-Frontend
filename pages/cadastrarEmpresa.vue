@@ -50,13 +50,16 @@
                   responseMessage
                 }}</b-alert>
 
-                <div class="form-group">
+                <div>
                   <label for="nome">CNPJ:</label>
                   <input
                     v-model="empresa.cnpj"
                     class="form-control"
                     type="text"
+                    name="nome"
+                    id="cnpj"
                     placeholder="CNPJ"
+                    v-maska="'##.###.###/####-##'"
                     required
                   />
                 </div>
@@ -127,7 +130,9 @@
                       v-model="empresa.estado"
                       type="text"
                       class="form-control"
+                      id="estado"
                       placeholder="MG"
+                      v-maska="'##'"
                       required
                     />
                   </div>
