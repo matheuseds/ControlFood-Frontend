@@ -136,16 +136,7 @@
                       required
                     />
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputCEP">CEP</label>
-                    <input
-                      v-model="empresa.cep"
-                      type="text"
-                      class="form-control"
-                      placeholder="38702-054"
-                      required
-                    />
-                  </div>
+                 
                 </div>
 
                 <div class="form-group text-center">
