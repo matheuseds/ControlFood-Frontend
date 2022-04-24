@@ -45,13 +45,13 @@
           <div class="card">
             <div class="card-body">
               <h1>Cadastrar Empresa</h1>
-              <form @submit.prevent="cadastro" id="form-contato">
+              <form @submit.prevent="cadastro">
                 <b-alert :variant="responseColor" :show="showAlert">{{
                   responseMessage
                 }}</b-alert>
 
                 <div>
-               <label for="nome">CNPJ:</label>
+                  <label for="nome">CNPJ:</label>
                   <input
                     v-model="empresa.cnpj"
                     class="form-control"
@@ -124,10 +124,10 @@
                       required
                     />
                   </div>
-                <div class="form-group col-md-3">
+                  <div class="form-group col-md-3">
                     <label for="inputEstado">Estado</label>
                     <input
-                    v-model="empresa.estado"
+                      v-model="empresa.estado"
                       type="text"
                       class="form-control"
                       id="estado"
@@ -136,7 +136,6 @@
                       required
                     />
                   </div>
-                 
                 </div>
 
                 <div class="form-group text-center">
