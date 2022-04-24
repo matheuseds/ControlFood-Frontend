@@ -26,6 +26,9 @@
           <li class="nav-item active">
             <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
           </li>
+           <li class="nav-item active">
+            <NuxtLink to="/listarEmpresas" class="nav-link" >Listar Empresas</NuxtLink>
+          </li>
           <li class="nav-item active">
             <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
           </li>
@@ -130,55 +133,15 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody v-for="horario in horarios" :key="horario.id">
           <tr>
-            <td>0001</td>
-            <td>Nome</td>
-            <td>28/03/2022</td>
-            <td>13:26</td>
+            <td>{{horario.id}}</td>
+            <td>{{horario.nome}}</td>
+            <td>{{horario.data}}</td>
+            <td>{{horario.hora}}</td>
           </tr>
-          <tr>
-            <td>0002</td>
-            <td>Nome</td>
-            <td>28/03/2022</td>
-            <td>13:26</td>
-          </tr>
-          <tr>
-            <td>0003</td>
-            <td>Nome</td>
-            <td>28/03/2022</td>
-            <td>13:26</td>
-          </tr>
-          <tr>
-            <td>0004</td>
-            <td>Nome</td>
-            <td>28/03/2022</td>
-            <td>13:26</td>
-          </tr>
-          <tr>
-            <td>0005</td>
-            <td>Nome</td>
-            <td>28/03/2022</td>
-            <td>13:26</td>
-          </tr>
-          <tr>
-            <td>0006</td>
-            <td>Nome</td>
-            <td>28/03/2022</td>
-            <td>13:26</td>
-          </tr>
-          <tr>
-            <td>0007</td>
-            <td>Nome</td>
-            <td>28/03/2022</td>
-            <td>13:26</td>
-          </tr>
-          <tr>
-            <td>0008</td>
-            <td>Nome</td>
-            <td>28/03/2022</td>
-            <td>13:26</td>
-          </tr>
+         
+         
         </tbody>
       </table>
     </div>
@@ -186,7 +149,24 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => ({
+    horarios: [
+      {
+        id: 1,
+        nome: 'Nome',
+        data: '28/03/2022',
+        hora:'13:26',
+      },
+      {
+        id: 2,
+        nome: 'Nome',
+        data: '28/03/2022',
+        hora:'13:26',
+      },
+    ],
+  }),
+}
 </script>
 
 <style>
