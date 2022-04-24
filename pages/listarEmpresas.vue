@@ -63,22 +63,24 @@
         <thead class="table-dark">
           <tr >
             <th>Id</th>
-            <th>Nome</th>
-            <th>CPF</th>
+            <th>CNPJ</th>
             <th>Empresa</th>
+            <th>Contato do Responsável</th>
             <th>E-mail</th>
-            <th>Nº Matricula</th>
+            <th>Endereço</th>
+            <th>Número</th>
           </tr>
         </thead>
 
         <tbody>
           <tr v-for="lista in listas" :key="lista.id">
             <td>{{lista.id}}</td>
-            <td>{{lista.nome }}</td>
-            <td>{{lista.CPF }}</td>
+            <td>{{lista.CNPJ }}</td>
             <td>{{lista.empresa }}</td>
+            <td>{{lista.contatoresponsavel }}</td>
             <td>{{lista.email }}</td>
-            <td>{{lista.matricula }}</td>
+            <td>{{lista.endereco }}</td>
+             <td>{{lista.numero }}</td>
           </tr>
         </tbody>
       </table>
@@ -92,19 +94,21 @@ export default {
     listas: [
       {
         id: 1,
-        nome: 'Nome',
-        CPF: '303.810.860-03',
+        CNPJ: '39.299.702/0001-53',
         empresa: 'Empresa',
+        contatoresponsavel: 'marthe3347@hotmail.com',
         email: 'marthe3347@uorak.com',
-        matricula: '123454356',
+        endereco: 'rua major gote',
+        numero: 140,
       },
-      {
+       {
         id: 2,
-        nome: 'Nome',
-        CPF: '303.810.860-03',
+        CNPJ: '39.299.702/0001-53',
         empresa: 'Empresa',
+        contatoresponsavel: 'marthe3347@hotmail.com',
         email: 'marthe3347@uorak.com',
-        matricula: '123454356',
+        endereco: 'rua major gote',
+        numero: 140,
       },
     ],
   }),
