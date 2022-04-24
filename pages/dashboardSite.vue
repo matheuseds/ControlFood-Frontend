@@ -26,6 +26,9 @@
           <li class="nav-item active">
             <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
           </li>
+           <li class="nav-item active">
+            <NuxtLink to="/listarEmpresas" class="nav-link" >Listar Empresas</NuxtLink>
+          </li>
           <li class="nav-item active">
             <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
           </li>
