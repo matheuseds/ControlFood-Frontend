@@ -14,26 +14,29 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExample02">
+       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Cadastrar Empresa <span class="sr-only">(current)</span></a
+            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
+              >Cadastrar Empresas</NuxtLink
             >
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Cadastrar Colaborador <span class="sr-only">(current)</span></a
+            <NuxtLink to="/cadastrarColaborador" class="nav-link"
+              >Cadastrar Colaborador</NuxtLink
             >
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Listar Colaboradores<span class="sr-only">(current)</span></a
+            <NuxtLink to="/listarColaboradores" class="nav-link"
+              >Listar Colaboradores</NuxtLink
             >
           </li>
+           <li class="nav-item active">
+            <NuxtLink to="/listarEmpresas" class="nav-link" >Listar Empresas</NuxtLink>
+          </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Relatório <span class="sr-only">(current)</span></a
+            <NuxtLink to="/relatorioGeral" class="nav-link"
+              >Relatorios</NuxtLink
             >
           </li>
         </ul>
