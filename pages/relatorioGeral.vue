@@ -15,27 +15,23 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
+    
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
-              >Cadastrar Empresas</NuxtLink
-            >
+            <NuxtLink to="/cadastrarEmpresa" class="nav-link" >Cadastrar Empresas</NuxtLink>
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarColaborador" class="nav-link"
-              >Cadastrar Colaborador</NuxtLink
-            >
+            <NuxtLink to="/cadastrarColaborador" class="nav-link" >Cadastrar Colaborador</NuxtLink>
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/listarColaboradores" class="nav-link"
-              >Listar Colaboradores</NuxtLink
-            >
+            <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
+          </li>
+           <li class="nav-item active">
+            <NuxtLink to="/listarEmpresas" class="nav-link" >Listar Empresas</NuxtLink>
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatorioGeral" class="nav-link"
-              >Relatorios</NuxtLink
-            >
+            <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
           </li>
         </ul>
       </div>
@@ -75,63 +71,17 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody v-for="relatorio in relatorios" :key="relatorio.id">
           <tr>
-            <td>0001</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
+            <td>{{relatorio.id}}</td>
+            <td>{{relatorio.nome}}</td>
+            <td>{{relatorio.empresa}}</td>
+            <td>{{relatorio.CPF}}</td>
+            <td>{{relatorio.refeicoes}}</td>
           </tr>
-          <tr>
-            <td>0002</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0003</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0004</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0005</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0006</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0007</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>0008</td>
-            <td>Nome</td>
-            <td>Nome Empresa</td>
-            <td>303.810.860-03</td>
-            <td>20</td>
-          </tr>
+       
+     
+          
         </tbody>
       </table>
     </div>
@@ -139,7 +89,26 @@
 </template>
 
 <script>
-export default {}
+export default {
+   data: () => ({
+    relatorios: [
+      {
+        id: 1,
+        nome: 'Nome',
+        empresa: 'Empresa',
+        CPF: '303.810.860-03',
+        refeicoes:'20',
+      },
+      {
+        id: 2,
+        nome: 'Nome',
+        empresa: 'Empresa',
+        CPF: '303.810.860-03',
+        refeicoes:'20',
+      },
+    ],
+  }),
+}
 </script>
 
 <style>
