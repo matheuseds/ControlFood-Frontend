@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="background">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
      <NuxtLink to="/dashboardSite" class="navbar-brand" >Control Food</NuxtLink>
 
@@ -154,13 +154,23 @@ export default {
 </script>
 
 <style>
+
+.background{
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  min-width: 1330px !important;
+  max-width: 1900px !important;
+  max-height: 920px !important;
+  min-height: 760px !important;
+}
+
 .card {
   display: inline-block;
   margin-top: 1% !important;
   margin-left: 5%;
   margin-right: 5%;
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.459);
-  border-left: 4px solid #007BFF;
+  
 }
 
 .titulo {
@@ -180,13 +190,9 @@ export default {
 .row {
   justify-content: center;
 }
-
-.icons {
-  margin-left: 38%;
-}
-
 .card-text {
   text-align: center;
   font-weight: bold;
 }
+
 </style>

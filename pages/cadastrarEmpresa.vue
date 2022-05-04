@@ -1,7 +1,7 @@
 <template>
-  <main>
+  <main class="background">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Control Food</a>
+      <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
       <button
         class="navbar-toggler"
         type="button"
@@ -14,26 +14,29 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExample02">
+ <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Cadastrar Empresa <span class="sr-only">(current)</span></a
+            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
+              >Cadastrar Empresas</NuxtLink
             >
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Cadastrar Colaborador <span class="sr-only">(current)</span></a
+            <NuxtLink to="/cadastrarColaborador" class="nav-link"
+              >Cadastrar Colaborador</NuxtLink
             >
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Listar Colaboradores<span class="sr-only">(current)</span></a
+            <NuxtLink to="/listarColaboradores" class="nav-link"
+              >Listar Colaboradores</NuxtLink
             >
           </li>
+           <li class="nav-item active">
+            <NuxtLink to="/listarEmpresas" class="nav-link" >Listar Empresas</NuxtLink>
+          </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Relatório <span class="sr-only">(current)</span></a
+            <NuxtLink to="/relatorioGeral" class="nav-link"
+              >Relatorios</NuxtLink
             >
           </li>
         </ul>
@@ -197,4 +200,14 @@ export default {
   margin-top: 3%;
   justify-content: center;
 }
+
+.background{
+  background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+     min-width: 1320px !important;
+    max-width: 1900px !important;
+    max-height: 920px !important;
+    min-height: 970px !important;
+}
+
 </style>

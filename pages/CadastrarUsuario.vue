@@ -4,13 +4,13 @@
       <div class="card">
         <div class="card-body mt-n1">
           <form @submit.prevent="cadastro">
-            <h2 class="h3 mb-3 fw-normal text-center">Cadastre-se</h2>
+            <h2 class="h3 mb-3 fw-normal text-center corTexto">Cadastre-se</h2>
             <b-alert :variant="responseColor" :show="showAlert">{{
               responseMessage
             }}</b-alert>
 
             <div class="form-group">
-              <label>Usuário</label>
+              <label class="corTexto" >Usuário</label>
               <input
                 v-model="usuario.nome"
                 type="text"
@@ -20,7 +20,7 @@
               />
             </div>
             <div class="form-group">
-              <label>Email</label>
+              <label class="corTexto">Email</label>
               <input
                 v-model="usuario.email"
                 type="email"
@@ -31,7 +31,7 @@
             </div>
 
             <div class="form-group">
-              <label>Senha</label>
+              <label class="corTexto">Senha</label>
               <input
                 v-model="usuario.senha"
                 type="password"
@@ -41,7 +41,7 @@
               />
             </div>
 
-            <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
+            <b-button class="w-100 btn btn-lg btn-light botao" type="submit"
               >Cadastrar</b-button
             >
           </form>
@@ -88,9 +88,22 @@ export default {
 </script>
 
 <style>
-.main {
-  width: 100vw;
+
+
+
+.card{
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  min-width: 1320px !important;
+  max-width: 1900px !important;
+  max-height: 920px !important;
+  min-height: 970px !important;
 }
+
+.corTexto{
+    color: white !important;
+}
+
 .botao {
   width: 6rem !important;
   min-width: 320px !important;
