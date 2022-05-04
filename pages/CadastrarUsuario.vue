@@ -41,7 +41,7 @@
               />
             </div>
 
-            <b-button class="w-100 btn btn-lg btn-light botao" type="submit"
+            <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
               >Cadastrar</b-button
             >
           </form>

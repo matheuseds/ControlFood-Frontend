@@ -17,8 +17,8 @@
                             
                         </div>
 
-                        <b-button class="w-100 btn btn-lg btn-light botao" type="submit">Entrar</b-button>
-                         <b-button class="w-100 btn btn-lg btn-light botao" >Cadastrar</b-button>
+                        <b-button class="w-100 btn btn-lg btn-dark botao" type="submit">Entrar</b-button>
+                         <b-button class="w-100 btn btn-lg btn-dark botao" >Cadastrar</b-button>
 
                         <b-checkbox class="senha">Esqueci minha senha</b-checkbox>
 
