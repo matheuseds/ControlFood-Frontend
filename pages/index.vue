@@ -52,13 +52,9 @@ export default{
     min-width: 1386px !important;
 }
 
-.corTexto{
-    color: white !important;
-}
 
 .card{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+   
     min-width: 1320px !important;
     max-width: 1900px !important;
     max-height: 920px !important;
@@ -83,7 +79,7 @@ export default{
     }
     .senha{
         margin-top: 7% !important;
-        color: white !important;
+        
     }
     
 

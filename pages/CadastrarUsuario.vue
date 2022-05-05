@@ -92,17 +92,14 @@ export default {
 
 
 .card{
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  
   min-width: 1320px !important;
   max-width: 1900px !important;
   max-height: 920px !important;
   min-height: 970px !important;
 }
 
-.corTexto{
-    color: white !important;
-}
+
 
 .botao {
   width: 6rem !important;
