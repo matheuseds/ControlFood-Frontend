@@ -10,7 +10,7 @@
             }}</b-alert>
 
             <div class="form-group">
-              <label class="corTexto" >Usuário</label>
+              <label class="corTexto">Usuário</label>
               <input
                 v-model="usuario.nome"
                 type="text"
@@ -87,7 +87,7 @@ export default {
 }
 </script>
 
-<style> 
+<style>
 .botao {
   width: 6rem;
   min-width: 320px;
@@ -102,5 +102,4 @@ export default {
   max-width: 800px !important;
   margin-bottom: 10% !important;
 }
-
 </style>

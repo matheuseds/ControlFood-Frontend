@@ -14,7 +14,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
- <div class="collapse navbar-collapse" id="navbarsExample02">
+      <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <NuxtLink to="/cadastrarEmpresa" class="nav-link"
@@ -31,8 +31,10 @@
               >Listar Colaboradores</NuxtLink
             >
           </li>
-           <li class="nav-item active">
-            <NuxtLink to="/listarEmpresas" class="nav-link" >Listar Empresas</NuxtLink>
+          <li class="nav-item active">
+            <NuxtLink to="/listarEmpresas" class="nav-link"
+              >Listar Empresas</NuxtLink
+            >
           </li>
           <li class="nav-item active">
             <NuxtLink to="/relatorioGeral" class="nav-link"

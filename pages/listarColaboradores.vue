@@ -15,23 +15,32 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-    
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarEmpresa" class="nav-link" >Cadastrar Empresas</NuxtLink>
+            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
+              >Cadastrar Empresas</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarColaborador" class="nav-link" >Cadastrar Colaborador</NuxtLink>
+            <NuxtLink to="/cadastrarColaborador" class="nav-link"
+              >Cadastrar Colaborador</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
-          </li>
-           <li class="nav-item active">
-            <NuxtLink to="/listarEmpresas" class="nav-link" >Listar Empresas</NuxtLink>
+            <NuxtLink to="/listarColaboradores" class="nav-link"
+              >Listar Colaboradores</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
+            <NuxtLink to="/listarEmpresas" class="nav-link"
+              >Listar Empresas</NuxtLink
+            >
+          </li>
+          <li class="nav-item active">
+            <NuxtLink to="/relatorioGeral" class="nav-link"
+              >Relatorios</NuxtLink
+            >
           </li>
         </ul>
       </div>
@@ -39,7 +48,13 @@
 
     <div class="container input-group pesquisa">
       <div class="pesquisa">
-        <input type="search" id="form1" class="form-control" />
+        <input
+          type="search"
+          id="form1"
+          class="form-control"
+          v-model="pesquisa"
+          placeholder="Pesquisar Colaborador"
+        />
       </div>
       <button type="button" class="btn btn-dark">
         <svg
@@ -61,24 +76,25 @@
     <div class="container">
       <table class="table">
         <thead class="table-dark">
-          <tr >
+          <tr>
             <th>Id</th>
             <th>Nome</th>
             <th>CPF</th>
             <th>Empresa</th>
             <th>E-mail</th>
-            <th>Nº Matricula</th>
           </tr>
         </thead>
 
-        <tbody>
-          <tr v-for="lista in listas" :key="lista.id">
-            <td >{{lista.id}}</td>
-            <td >{{lista.nome }}</td>
-            <td >{{lista.CPF }}</td>
-            <td >{{lista.empresa }}</td>
-            <td >{{lista.email }}</td>
-            <td >{{lista.matricula }}</td>
+        <tbody
+          v-for="colaborador in colaboradoresFiltrados"
+          :key="colaborador.id"
+        >
+          <tr>
+            <td>{{ colaborador.id }}</td>
+            <td>{{ colaborador.nome }}</td>
+            <td>{{ colaborador.cpf }}</td>
+            <td>{{ colaborador.nome_empresa }}</td>
+            <td>{{ colaborador.email }}</td>
           </tr>
         </tbody>
       </table>
@@ -89,29 +105,22 @@
 <script>
 export default {
   data: () => ({
-    listas: [
-      {
-        id: 1,
-        nome: 'Nome',
-        CPF: '303.810.860-03',
-        empresa: 'Empresa',
-        email: 'marthe3347@uorak.com',
-        matricula: '123454356',
-      },
-      {
-        id: 2,
-        nome: 'Nome',
-        CPF: '303.810.860-03',
-        empresa: 'Empresa',
-        email: 'marthe3347@uorak.com',
-        matricula: '123454356',
-      },
-    ],
+    colaboradores: [],
+    pesquisa: '',
   }),
+  async fetch() {
+    this.colaboradores = await this.$axios.$get('/colaborador')
+  },
+  computed: {
+    colaboradoresFiltrados() {
+      return this.colaboradores.filter((colaborador) =>
+        colaborador.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
+      )
+    },
+  },
 }
 </script>
 <style>
-
 .titulo {
   margin-top: 2%;
   text-align: center;
@@ -129,5 +138,4 @@ export default {
 .row {
   justify-content: center;
 }
-
 </style>
