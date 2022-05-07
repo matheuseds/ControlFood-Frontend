@@ -116,13 +116,6 @@ export default {
 </script>
 <style>
 
-
-.titulo {
-  margin-top: 2%;
-  text-align: center;
-  margin-bottom: 3%;
-
-}
 .pesquisa {
   align-items: center;
   margin-left: 20%;

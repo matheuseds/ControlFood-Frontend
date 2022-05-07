@@ -63,9 +63,6 @@ export default{
         margin-top: 15% !important;
         margin-bottom: 13% !important;
     }
-    .senha{
-        margin-top: 7% !important;   
-    }
     
 
 </style>

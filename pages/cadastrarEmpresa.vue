@@ -200,6 +200,4 @@ export default {
   margin-top: 3%;
   justify-content: center;
 }
-
-
 </style>

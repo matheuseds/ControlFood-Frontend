@@ -112,7 +112,6 @@ export default {
 </script>
 <style>
 
-
 .titulo {
   margin-top: 2%;
   text-align: center;

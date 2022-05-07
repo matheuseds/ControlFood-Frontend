@@ -87,8 +87,7 @@ export default {
 }
 </script>
 
-<style>
-
+<style> 
 .botao {
   width: 6rem;
   min-width: 320px;

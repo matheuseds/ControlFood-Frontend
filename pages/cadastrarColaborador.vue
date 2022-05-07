@@ -168,7 +168,6 @@ export default {
 </script>
 
 <style>
-
 .botao {
   margin-top: 7%;
 }
