@@ -48,22 +48,6 @@ export default{
 
 <style>
 
-.main{
-    min-width: 1386px !important;
-}
-
-.corTexto{
-    color: white !important;
-}
-
-.card{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-    min-width: 1320px !important;
-    max-width: 1900px !important;
-    max-height: 920px !important;
-    min-height: 970px !important;
-}
     .botao{
         width: 6.0rem !important;
         min-width: 150px !important;
@@ -74,16 +58,13 @@ export default{
     .mt-n1 {
         margin-left: auto !important;
         margin-right: auto !important;
-        min-width: 320px !important;
-        max-width: 800px !important;
         justify-content: center !important;
         align-items: center !important;
         margin-top: 15% !important;
-        margin-bottom: 15% !important;
+        margin-bottom: 13% !important;
     }
     .senha{
-        margin-top: 7% !important;
-        color: white !important;
+        margin-top: 7% !important;   
     }
     
 

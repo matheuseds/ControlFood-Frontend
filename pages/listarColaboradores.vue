@@ -73,12 +73,12 @@
 
         <tbody>
           <tr v-for="lista in listas" :key="lista.id">
-            <td class="corTabela">{{lista.id}}</td>
-            <td class="corTabela">{{lista.nome }}</td>
-            <td class="corTabela">{{lista.CPF }}</td>
-            <td class="corTabela">{{lista.empresa }}</td>
-            <td class="corTabela">{{lista.email }}</td>
-            <td class="corTabela">{{lista.matricula }}</td>
+            <td >{{lista.id}}</td>
+            <td >{{lista.nome }}</td>
+            <td >{{lista.CPF }}</td>
+            <td >{{lista.empresa }}</td>
+            <td >{{lista.email }}</td>
+            <td >{{lista.matricula }}</td>
           </tr>
         </tbody>
       </table>
@@ -112,14 +112,6 @@ export default {
 </script>
 <style>
 
-.background{
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-  min-width: 1320px !important;
-  max-width: 1900px !important;
-  max-height: 920px !important;
-  min-height: 970px !important;
-}
 
 .titulo {
   margin-top: 2%;
@@ -138,7 +130,5 @@ export default {
 .row {
   justify-content: center;
 }
-.corTabela{
-  color: white;
-}
+
 </style>

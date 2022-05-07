@@ -73,11 +73,11 @@
 
         <tbody v-for="relatorio in relatorios" :key="relatorio.id">
           <tr>
-            <td class="corTabela">{{relatorio.id}}</td>
-            <td class="corTabela">{{relatorio.nome}}</td>
-            <td class="corTabela">{{relatorio.empresa}}</td>
-            <td class="corTabela">{{relatorio.CPF}}</td>
-            <td class="corTabela">{{relatorio.refeicoes}}</td>
+            <td >{{relatorio.id}}</td>
+            <td >{{relatorio.nome}}</td>
+            <td >{{relatorio.empresa}}</td>
+            <td >{{relatorio.CPF}}</td>
+            <td >{{relatorio.refeicoes}}</td>
           </tr>
        
      
@@ -112,42 +112,8 @@ export default {
 </script>
 
 <style>
-
-.background{
-  background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-  min-width: 1320px !important;
-  max-width: 1900px !important;
-  max-height: 920px !important;
-  min-height: 970px !important;
-}
-
-.corTabela{
-  color: white;
-}
-
-.titulo {
-  margin-top: 2%;
-  text-align: center;
-  margin-bottom: 3%;
-}
-.pesquisa {
-  align-items: center;
-  margin-left: 20%;
-  margin-top: 2%;
-  width: 60%;
-}
-.form-control {
-  margin-bottom: 3%;
-}
-
-.icons {
-  margin-left: 38%;
-}
-
 .botao{
- 
-  width: 110%;
+ width: 110%;
 }
 
 .dropdown {
