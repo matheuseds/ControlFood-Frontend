@@ -97,16 +97,7 @@
                     required
                   />
                 </div>
-                <div class="form-group">
-                  <label for="email">Número de Matricula:</label>
-                  <input
-                    v-model="colaborador.numero_matricula"
-                    class="form-control"
-                    type="text"
-                    placeholder="Número da Matricula"
-                    required
-                  />
-                </div>
+              
 
                 <div class="container form-group text-center botao">
                   <button type="submit" class="btn btn-dark" required>
