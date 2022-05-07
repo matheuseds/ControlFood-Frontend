@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="background">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
 
@@ -15,7 +15,6 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-     
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -33,8 +32,10 @@
               >Listar Colaboradores</NuxtLink
             >
           </li>
-           <li class="nav-item active">
-            <NuxtLink to="/listarEmpresas" class="nav-link" >Listar Empresas</NuxtLink>
+          <li class="nav-item active">
+            <NuxtLink to="/listarEmpresas" class="nav-link"
+              >Listar Empresas</NuxtLink
+            >
           </li>
           <li class="nav-item active">
             <NuxtLink to="/relatorioGeral" class="nav-link"
@@ -94,16 +95,6 @@
                     class="form-control"
                     type="email"
                     placeholder="E-mail"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email">Número de Matricula:</label>
-                  <input
-                    v-model="colaborador.numero_matricula"
-                    class="form-control"
-                    type="text"
-                    placeholder="Número da Matricula"
                     required
                   />
                 </div>

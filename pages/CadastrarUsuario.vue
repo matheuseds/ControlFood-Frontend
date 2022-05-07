@@ -4,13 +4,13 @@
       <div class="card">
         <div class="card-body mt-n1">
           <form @submit.prevent="cadastro">
-            <h2 class="h3 mb-3 fw-normal text-center">Cadastre-se</h2>
+            <h2 class="h3 mb-3 fw-normal text-center corTexto">Cadastre-se</h2>
             <b-alert :variant="responseColor" :show="showAlert">{{
               responseMessage
             }}</b-alert>
 
             <div class="form-group">
-              <label>Usuário</label>
+              <label class="corTexto">Usuário</label>
               <input
                 v-model="usuario.nome"
                 type="text"
@@ -20,7 +20,7 @@
               />
             </div>
             <div class="form-group">
-              <label>Email</label>
+              <label class="corTexto">Email</label>
               <input
                 v-model="usuario.email"
                 type="email"
@@ -31,7 +31,7 @@
             </div>
 
             <div class="form-group">
-              <label>Senha</label>
+              <label class="corTexto">Senha</label>
               <input
                 v-model="usuario.senha"
                 type="password"
@@ -88,23 +88,18 @@ export default {
 </script>
 
 <style>
-.main {
-  width: 100vw;
-}
 .botao {
-  width: 6rem !important;
-  min-width: 320px !important;
-  max-width: 800px !important;
-  margin-top: 2% !important;
+  width: 6rem;
+  min-width: 320px;
+  max-width: 800px;
+  margin-top: 2%;
 }
 .mt-n1 {
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 14% !important;
   min-width: 320px !important;
   max-width: 800px !important;
-}
-.senha {
-  margin-top: 7% !important;
+  margin-bottom: 10% !important;
 }
 </style>

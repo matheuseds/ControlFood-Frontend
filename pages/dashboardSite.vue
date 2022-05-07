@@ -1,7 +1,7 @@
 <template>
-  <main>
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-     <NuxtLink to="/dashboardSite" class="navbar-brand" >Control Food</NuxtLink>
+  <main class="background">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
 
       <button
         class="navbar-toggler"
@@ -18,19 +18,29 @@
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarEmpresa" class="nav-link" >Cadastrar Empresas</NuxtLink>
+            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
+              >Cadastrar Empresas</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarColaborador" class="nav-link" >Cadastrar Colaborador</NuxtLink>
+            <NuxtLink to="/cadastrarColaborador" class="nav-link"
+              >Cadastrar Colaborador</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
-          </li>
-           <li class="nav-item active">
-            <NuxtLink to="/listarEmpresas" class="nav-link" >Listar Empresas</NuxtLink>
+            <NuxtLink to="/listarColaboradores" class="nav-link"
+              >Listar Colaboradores</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
+            <NuxtLink to="/listarEmpresas" class="nav-link"
+              >Listar Empresas</NuxtLink
+            >
+          </li>
+          <li class="nav-item active">
+            <NuxtLink to="/relatorioGeral" class="nav-link"
+              >Relatorios</NuxtLink
+            >
           </li>
         </ul>
       </div>
@@ -54,10 +64,9 @@
               d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"
             />
           </svg>
-          <p class="card-text">{{empresas.length}}</p>
+          <p class="card-text">{{ empresas.length }}</p>
         </div>
       </div>
-
       <div class="card" style="width: 17rem">
         <div class="card-body">
           <h5 class="card-title">Total de Colaboradores</h5>
@@ -77,59 +86,60 @@
               d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
             />
           </svg>
-          <p class="card-text">{{colaboradores.length}}</p>
+          <p class="card-text">{{ colaboradores.length }}</p>
         </div>
       </div>
-
-
-
-    <div class=" container input-group pesquisa">
-      <div class="pesquisa">
-        <input type="search" id="form1" class="form-control" v-model="pesquisa" placeholder="Pesquisar Colaborador" />
-
-      </div>
-      <button type="button" class="btn btn-dark">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-search"
-          viewBox="0 0 16 16"
-        >
-
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+      <div class="container input-group pesquisa">
+        <div class="pesquisa">
+          <input
+            type="search"
+            id="form1"
+            class="form-control"
+            v-model="pesquisa"
+            placeholder="Pesquisar Colaborador"
           />
-        </svg>
-      </button>
-    </div>
+        </div>
+        <button type="button" class="btn btn-dark">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </button>
+      </div>
 
-    <!-- ARRUMAR TITULO <h1 class="titulo">Colaboradores</h1> -->
-    <div class="container">
-      <table class="table">
-        <thead class="table-dark">
-          <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>CPF</th>
-            <th>Nome Empresa</th>
-          </tr>
-        </thead>
+      <!-- ARRUMAR TITULO <h1 class="titulo">Colaboradores</h1> -->
+      <div class="container">
+        <table class="table">
+          <thead class="table-dark">
+            <tr>
+              <th>Id</th>
+              <th>Nome</th>
+              <th>CPF</th>
+              <th>Nome Empresa</th>
+            </tr>
+          </thead>
 
-        <tbody v-for="colaborador in colaboradoresFiltrados" :key="colaborador.id">
-          <tr>
-            <td>{{colaborador.id}}</td>
-            <td>{{colaborador.nome}}</td>
-            <td>{{colaborador.cpf}}</td>
-            <td>{{colaborador.nome_empresa}}</td>
-          </tr>
-         
-         
-        </tbody>
-      </table>
-    </div>
-
+          <tbody
+            v-for="colaborador in colaboradoresFiltrados"
+            :key="colaborador.id"
+          >
+            <tr>
+              <td>{{ colaborador.id }}</td>
+              <td>{{ colaborador.nome }}</td>
+              <td>{{ colaborador.cpf }}</td>
+              <td>{{ colaborador.nome_empresa }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </main>
 </template>
@@ -137,19 +147,21 @@
 <script>
 export default {
   data: () => ({
-    empresas: [], 
+    empresas: [],
     colaboradores: [],
     pesquisa: '',
   }),
-  async fetch(){
-    this.empresas = ( await this.$axios.$get('/empresa'))
-    this.colaboradores = ( await this.$axios.$get('/colaborador'))
+  async fetch() {
+    this.empresas = await this.$axios.$get('/empresa')
+    this.colaboradores = await this.$axios.$get('/colaborador')
   },
   computed: {
-    colaboradoresFiltrados(){
-      return this.colaboradores.filter(colaborador => colaborador.nome.toLowerCase().includes(this.pesquisa.toLowerCase()))
-    }
-  }
+    colaboradoresFiltrados() {
+      return this.colaboradores.filter((colaborador) =>
+        colaborador.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
+      )
+    },
+  },
 }
 </script>
 
@@ -160,7 +172,6 @@ export default {
   margin-left: 5%;
   margin-right: 5%;
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.459);
-  border-left: 4px solid #007BFF;
 }
 
 .titulo {
@@ -180,13 +191,12 @@ export default {
 .row {
   justify-content: center;
 }
-
-.icons {
-  margin-left: 38%;
-}
-
 .card-text {
   text-align: center;
   font-weight: bold;
+}
+
+.icons {
+  margin-left: 38%;
 }
 </style>

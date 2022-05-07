@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="background">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
 
@@ -15,23 +15,32 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-    
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarEmpresa" class="nav-link" >Cadastrar Empresas</NuxtLink>
+            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
+              >Cadastrar Empresas</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/cadastrarColaborador" class="nav-link" >Cadastrar Colaborador</NuxtLink>
+            <NuxtLink to="/cadastrarColaborador" class="nav-link"
+              >Cadastrar Colaborador</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/listarColaboradores" class="nav-link" >Listar Colaboradores</NuxtLink>
-          </li>
-           <li class="nav-item active">
-            <NuxtLink to="/listarEmpresas" class="nav-link" >Listar Empresas</NuxtLink>
+            <NuxtLink to="/listarColaboradores" class="nav-link"
+              >Listar Colaboradores</NuxtLink
+            >
           </li>
           <li class="nav-item active">
-            <NuxtLink to="/relatorioGeral" class="nav-link" >Relatorios</NuxtLink>
+            <NuxtLink to="/listarEmpresas" class="nav-link"
+              >Listar Empresas</NuxtLink
+            >
+          </li>
+          <li class="nav-item active">
+            <NuxtLink to="/relatorioGeral" class="nav-link"
+              >Relatorios</NuxtLink
+            >
           </li>
         </ul>
       </div>
@@ -39,7 +48,13 @@
 
     <div class="container input-group pesquisa">
       <div class="pesquisa">
-        <input type="search" id="form1" class="form-control" />
+        <input
+          type="search"
+          id="form1"
+          class="form-control"
+          v-model="pesquisa"
+          placeholder="Pesquisar Empresas"
+        />
       </div>
       <button type="button" class="btn btn-dark">
         <svg
@@ -57,30 +72,26 @@
       </button>
     </div>
 
-    <h1 class="titulo">Colaboradores Cadastrados</h1>
+    <h1 class="titulo">Empresas Cadastradas</h1>
     <div class="container">
       <table class="table">
         <thead class="table-dark">
-          <tr >
+          <tr>
             <th>Id</th>
             <th>CNPJ</th>
             <th>Empresa</th>
             <th>Contato do Responsável</th>
             <th>E-mail</th>
-            <th>Endereço</th>
-            <th>Número</th>
           </tr>
         </thead>
 
-        <tbody>
-          <tr v-for="lista in listas" :key="lista.id">
-            <td>{{lista.id}}</td>
-            <td>{{lista.CNPJ }}</td>
-            <td>{{lista.empresa }}</td>
-            <td>{{lista.contatoresponsavel }}</td>
-            <td>{{lista.email }}</td>
-            <td>{{lista.endereco }}</td>
-             <td>{{lista.numero }}</td>
+        <tbody v-for="empresa in empresasFiltradas" :key="empresa.id">
+          <tr>
+            <td>{{ empresa.id }}</td>
+            <td>{{ empresa.cnpj }}</td>
+            <td>{{ empresa.nomeEmpresa }}</td>
+            <td>{{ empresa.contatoResponsavel }}</td>
+            <td>{{ empresa.email }}</td>
           </tr>
         </tbody>
       </table>
@@ -91,43 +102,23 @@
 <script>
 export default {
   data: () => ({
-    listas: [
-      {
-        id: 1,
-        CNPJ: '39.299.702/0001-53',
-        empresa: 'Empresa',
-        contatoresponsavel: 'marthe3347@hotmail.com',
-        email: 'marthe3347@uorak.com',
-        endereco: 'rua major gote',
-        numero: 140,
-      },
-       {
-        id: 2,
-        CNPJ: '39.299.702/0001-53',
-        empresa: 'Empresa',
-        contatoresponsavel: 'marthe3347@hotmail.com',
-        email: 'marthe3347@uorak.com',
-        endereco: 'rua major gote',
-        numero: 140,
-      },
-    ],
+    empresas: [],
+    pesquisa: '',
   }),
+  async fetch() {
+    this.empresas = await this.$axios.$get('/empresa')
+    console.log(this.empresas)
+  },
+  computed: {
+    empresasFiltradas() {
+      return this.empresas.filter((empresa) =>
+        empresa.nomeEmpresa.toLowerCase().includes(this.pesquisa.toLowerCase())
+      )
+    },
+  },
 }
 </script>
 <style>
-.card {
-  display: inline-block;
-  margin-top: 2%;
-  margin-left: 5%;
-  margin-right: 5%;
-  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.459);
-}
-
-.titulo {
-  margin-top: 2%;
-  text-align: center;
-  margin-bottom: 3%;
-}
 .pesquisa {
   align-items: center;
   margin-left: 20%;
@@ -139,14 +130,5 @@ export default {
 }
 .row {
   justify-content: center;
-}
-
-.icons {
-  margin-left: 38%;
-}
-
-.card-text {
-  text-align: center;
-  font-weight: bold;
 }
 </style>
