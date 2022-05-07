@@ -187,4 +187,8 @@ export default {
   font-weight: bold;
 }
 
+.icons {
+  margin-left: 38%;
+}
+
 </style>
