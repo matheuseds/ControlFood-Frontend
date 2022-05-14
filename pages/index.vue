@@ -8,6 +8,7 @@
           <div class="form-group">
             <label class="corTexto">Email</label>
             <input
+              v-model="usuario.email"
               type="email"
               required
               class="form-control form-control-lg"
@@ -18,6 +19,7 @@
           <div class="form-group">
             <label class="corTexto">Senha</label>
             <input
+            v-model="usuario.senha"
               type="password"
               required
               class="form-control form-control-lg"
@@ -41,13 +43,22 @@
 export default {
   name: 'IndexPage',
   data: () => ({
+    usuario : {
     email: '',
-    password: '',
-  }),
+    senha: '',
+  }
+}),
 
   methods: {
-    login() {
-      alert('login')
+   async login() {
+          try {
+        await this.$axios.$post('/usuario/login', this.usuario)
+        this.$router.push({name:'dashboardSite'});
+      } catch (error) {
+        this.responseColor = 'danger'
+        this.responseMessage = 'Ocorreu um erro'
+        this.showAlert = true
+      }
     },
   },
 }
