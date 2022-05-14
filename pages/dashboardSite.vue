@@ -178,20 +178,6 @@ export default {
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.459);
 }
 
-.titulo {
-  margin-top: 2%;
-  text-align: center;
-  margin-bottom: 3%;
-}
-.pesquisa {
-  align-items: center;
-  margin-left: 20%;
-  margin-top: 2%;
-  width: 60%;
-}
-.form-control {
-  margin-bottom: 3%;
-}
 .row {
   justify-content: center;
 }

@@ -46,8 +46,8 @@
     <div class="container">
       <div class="row">
         <div class="col-6">
-          <div class="card">
-            <div class="card-body">
+          <div class="card ajustes">
+            <div class="card-body ">
               <h1>Cadastrar Empresa</h1>
               <form @submit.prevent="cadastro">
                 <b-alert :variant="responseColor" :show="showAlert">{{
@@ -200,5 +200,8 @@ export default {
 .row {
   margin-top: 3%;
   justify-content: center;
+}
+.ajustes{
+  margin-bottom: 12%;
 }
 </style>
