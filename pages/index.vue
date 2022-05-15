@@ -19,7 +19,7 @@
           <div class="form-group">
             <label class="corTexto">Senha</label>
             <input
-            v-model="usuario.senha"
+              v-model="usuario.senha"
               type="password"
               required
               class="form-control form-control-lg"
@@ -43,17 +43,17 @@
 export default {
   name: 'IndexPage',
   data: () => ({
-    usuario : {
-    email: '',
-    senha: '',
-  }
-}),
+    usuario: {
+      email: '',
+      senha: '',
+    },
+  }),
 
   methods: {
-   async login() {
-          try {
+    async login() {
+      try {
         await this.$axios.$post('/usuario/login', this.usuario)
-        this.$router.push({name:'dashboardSite'});
+        this.$router.push({ name: 'dashboardSite' })
       } catch (error) {
         this.responseColor = 'danger'
         this.responseMessage = 'Ocorreu um erro'
@@ -77,6 +77,5 @@ export default {
   justify-content: center !important;
   align-items: center !important;
   margin-top: 15% !important;
-  
 }
 </style>

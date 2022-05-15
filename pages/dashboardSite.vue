@@ -135,15 +135,13 @@
             <tr>
               <td>{{ colaborador.id }}</td>
               <td>{{ colaborador.nome }}</td>
-              <td class=" alinhar">{{ colaborador.cpf }}</td>
+              <td class="alinhar">{{ colaborador.cpf }}</td>
               <td>{{ colaborador.nome_empresa }}</td>
-              <td><b-button
-                style="background-color: #16a085"
-                v-b-modal.modal-1
-                @click="id = empresa.id"
-              >
-                <b-icon-check></b-icon-check>
-              </b-button></td>
+              <td>
+                <b-button style="background-color: #16a085">
+                  <b-icon-check></b-icon-check>
+                </b-button>
+              </td>
             </tr>
           </tbody>
         </table>

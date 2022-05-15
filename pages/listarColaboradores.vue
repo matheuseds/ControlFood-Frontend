@@ -218,9 +218,8 @@ export default {
 
     async excluirColaborador() {
       await this.$axios.$delete(`/colaborador/${this.id}`)
-      const filterColaboradores = this.colaboradores.filter((colaborador) => 
-      colaborador.id !== this.id
-    
+      const filterColaboradores = this.colaboradores.filter(
+        (colaborador) => colaborador.id !== this.id
       )
 
       this.colaboradores = filterColaboradores

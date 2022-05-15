@@ -79,7 +79,8 @@ export default {
         this.showAlert = true
       } catch (error) {
         this.responseColor = 'danger'
-        this.responseMessage = 'A senha deve conter 8 dígitos, 1 caracter maiúsculo e um caracter especial'
+        this.responseMessage =
+          'A senha deve conter 8 dígitos, 1 caracter maiúsculo e um caracter especial'
         this.showAlert = true
       }
     },
