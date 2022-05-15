@@ -2,7 +2,7 @@
   <main>
     <div class="form-signin main">
       <div class="card">
-        <div class="card-body mt-n1">
+        <div class="card-body mt-n1 ajustes">
           <form @submit.prevent="cadastro">
             <h2 class="h3 mb-3 fw-normal text-center corTexto">Cadastre-se</h2>
             <b-alert :variant="responseColor" :show="showAlert">{{
@@ -94,12 +94,9 @@ export default {
   max-width: 800px;
   margin-top: 2%;
 }
-.mt-n1 {
+.ajustes {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 14% !important;
-  min-width: 320px !important;
-  max-width: 800px !important;
-  margin-bottom: 10% !important;
+  margin-top: 9% !important;
 }
 </style>

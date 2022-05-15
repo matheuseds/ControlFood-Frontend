@@ -82,9 +82,71 @@
             <th>CPF</th>
             <th>Empresa</th>
             <th>E-mail</th>
+            <th></th>
           </tr>
         </thead>
+        <div>
+          <b-modal
+            id="modal-excluir"
+            title="Excluir colaborador"
+            ok-title="Sim"
+            cancel-title="Não"
+            @ok="excluirColaborador()"
+          >
+            <p class="my-4">Você deseja excluir este colaborador(a)?</p>
+          </b-modal>
+        </div>
 
+        <b-modal
+          id="modal-editar"
+          title="Editar Colaborador"
+          ok-title="Confirmar"
+          cancel-title="Cancelar"
+          @ok="editarColaborador()"
+        >
+          <div class="form-group">
+            <label for="email">Nome:</label>
+            <input
+              v-model="colaborador.nome"
+              class="form-control"
+              type="text"
+              placeholder="Nome"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="number">CPF:</label>
+            <input
+              v-model="colaborador.cpf"
+              class="form-control"
+              type="text"
+              placeholder="303.810.860-03"
+              v-maska="'###.###.###-##'"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Nome da Empresa:</label>
+            <input
+              v-model="colaborador.nome_empresa"
+              class="form-control"
+              type="text"
+              placeholder="Nome da Empresa"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input
+              v-model="colaborador.email"
+              class="form-control"
+              type="email"
+              placeholder="E-mail"
+              required
+            />
+          </div>
+        </b-modal>
         <tbody
           v-for="colaborador in colaboradoresFiltrados"
           :key="colaborador.id"
@@ -95,6 +157,23 @@
             <td>{{ colaborador.cpf }}</td>
             <td>{{ colaborador.nome_empresa }}</td>
             <td>{{ colaborador.email }}</td>
+            <td>
+              <b-button
+                style="background-color: #b33939"
+                v-b-modal.modal-excluir
+                @click="id = colaborador.id"
+              >
+                <b-icon-trash></b-icon-trash>
+              </b-button>
+
+              <b-button
+                style="background-color: #2980b9"
+                v-b-modal.modal-editar
+                @click="abrirModaldeEdicao(colaborador)"
+              >
+                <b-icon-pencil></b-icon-pencil>
+              </b-button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -105,6 +184,13 @@
 <script>
 export default {
   data: () => ({
+    colaborador: {
+      nome: '',
+      cpf: '',
+      nome_empresa: '',
+      email: '',
+      id: '',
+    },
     colaboradores: [],
     pesquisa: '',
   }),
@@ -116,6 +202,28 @@ export default {
       return this.colaboradores.filter((colaborador) =>
         colaborador.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
       )
+    },
+  },
+  methods: {
+    async editarColaborador() {
+      await this.$axios.$put(
+        `/colaborador/${this.colaborador.id}`,
+        this.colaborador
+      )
+      this.$fetch()
+    },
+    abrirModaldeEdicao(colaborador) {
+      this.colaborador = Object.assign({}, colaborador)
+    },
+
+    async excluirColaborador() {
+      await this.$axios.$delete(`/colaborador/${this.id}`)
+      const filterColaboradores = this.colaboradores.filter((colaborador) => 
+      colaborador.id !== this.id
+    
+      )
+
+      this.colaboradores = filterColaboradores
     },
   },
 }

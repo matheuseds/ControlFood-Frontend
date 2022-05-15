@@ -124,6 +124,7 @@
               <th>Nome</th>
               <th>CPF</th>
               <th>Nome Empresa</th>
+              <th></th>
             </tr>
           </thead>
 
@@ -136,6 +137,9 @@
               <td>{{ colaborador.nome }}</td>
               <td>{{ colaborador.cpf }}</td>
               <td>{{ colaborador.nome_empresa }}</td>
+              <td><button style="background-color:green"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+</svg></button></td>
             </tr>
           </tbody>
         </table>
@@ -174,20 +178,6 @@ export default {
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.459);
 }
 
-.titulo {
-  margin-top: 2%;
-  text-align: center;
-  margin-bottom: 3%;
-}
-.pesquisa {
-  align-items: center;
-  margin-left: 20%;
-  margin-top: 2%;
-  width: 60%;
-}
-.form-control {
-  margin-bottom: 3%;
-}
 .row {
   justify-content: center;
 }

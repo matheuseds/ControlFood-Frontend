@@ -82,8 +82,21 @@
             <th>Empresa</th>
             <th>Contato do Responsável</th>
             <th>E-mail</th>
+            <th></th>
           </tr>
         </thead>
+
+        <div>
+          <b-modal
+            id="modal-1"
+            title="Excluir empresa"
+            ok-title="Sim"
+            cancel-title="Não"
+            @ok="excluirEmpresa()"
+          >
+            <p class="my-4">Você deseja excluir esta empresa?</p>
+          </b-modal>
+        </div>
 
         <tbody v-for="empresa in empresasFiltradas" :key="empresa.id">
           <tr>
@@ -92,6 +105,15 @@
             <td>{{ empresa.nomeEmpresa }}</td>
             <td>{{ empresa.contatoResponsavel }}</td>
             <td>{{ empresa.email }}</td>
+            <td>
+              <b-button
+                style="background-color: #b33939"
+                v-b-modal.modal-1
+                @click="id = empresa.id"
+              >
+                <b-icon-trash></b-icon-trash>
+              </b-button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -104,16 +126,26 @@ export default {
   data: () => ({
     empresas: [],
     pesquisa: '',
+    id: null,
   }),
   async fetch() {
     this.empresas = await this.$axios.$get('/empresa')
-    console.log(this.empresas)
   },
   computed: {
     empresasFiltradas() {
       return this.empresas.filter((empresa) =>
         empresa.nomeEmpresa.toLowerCase().includes(this.pesquisa.toLowerCase())
       )
+    },
+  },
+  methods: {
+    async excluirEmpresa() {
+      await this.$axios.$delete(`/empresa/${this.id}`)
+      const filterEmpresas = this.empresas.filter((empresa) => 
+        empresa.id !== this.id
+      )
+
+      this.empresas = filterEmpresas
     },
   },
 }
