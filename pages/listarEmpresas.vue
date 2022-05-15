@@ -81,10 +81,22 @@
             <th>CNPJ</th>
             <th>Empresa</th>
             <th>Contato do Responsável</th>
-            <th>E-mail</th> 
+            <th>E-mail</th>
             <th></th>
           </tr>
         </thead>
+
+        <div>
+          <b-modal
+            id="modal-1"
+            title="Excluir empresa"
+            ok-title="Sim"
+            cancel-title="Não"
+            @ok="excluirEmpresa()"
+          >
+            <p class="my-4">Você deseja excluir esta empresa?</p>
+          </b-modal>
+        </div>
 
         <tbody v-for="empresa in empresasFiltradas" :key="empresa.id">
           <tr>
@@ -93,9 +105,15 @@
             <td>{{ empresa.nomeEmpresa }}</td>
             <td>{{ empresa.contatoResponsavel }}</td>
             <td>{{ empresa.email }}</td>
-            <td><button style="background-color:red"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-</svg></button></td>
+            <td>
+              <b-button
+                style="background-color: #b33939"
+                v-b-modal.modal-1
+                @click="id = empresa.id"
+              >
+                <b-icon-trash></b-icon-trash>
+              </b-button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -108,16 +126,23 @@ export default {
   data: () => ({
     empresas: [],
     pesquisa: '',
+    id: null,
   }),
   async fetch() {
     this.empresas = await this.$axios.$get('/empresa')
-    console.log(this.empresas)
   },
   computed: {
     empresasFiltradas() {
       return this.empresas.filter((empresa) =>
         empresa.nomeEmpresa.toLowerCase().includes(this.pesquisa.toLowerCase())
       )
+    },
+  },
+  methods: {
+    async excluirEmpresa() {
+      await this.$axios.$delete(`/empresa/${this.id}`)
+      console.log(this.empresas)
+  
     },
   },
 }
