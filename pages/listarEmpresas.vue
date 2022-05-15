@@ -141,8 +141,11 @@ export default {
   methods: {
     async excluirEmpresa() {
       await this.$axios.$delete(`/empresa/${this.id}`)
-      console.log(this.empresas)
-  
+      const filterEmpresas = this.empresas.filter((empresa) => 
+        empresa.id !== this.id
+      )
+
+      this.empresas = filterEmpresas
     },
   },
 }

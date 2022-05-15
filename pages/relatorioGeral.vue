@@ -49,11 +49,10 @@
     <div class="row">
       <div>
         <button type="button" class="btn btn-dark botao">Imprimir</button>
-        <div class="row">
-        </div>
+        <div class="row"></div>
       </div>
     </div>
-      <div class="container input-group pesquisa">
+    <div class="container input-group pesquisa">
       <div class="pesquisa">
         <input
           type="search"
@@ -77,9 +76,11 @@
           />
         </svg>
       </button>
-      <button onclick="window.location.reload()"
-      
-        type="button" class="btn btn-dark"> 
+      <button
+        onclick="window.location.reload()"
+        type="button"
+        class="btn btn-dark"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -87,17 +88,15 @@
           fill="currentColor"
           class="bi bi-search"
           viewBox="0 0 16 16"
-         
-          >
-          <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-  <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
-  />
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+          />
+          <path
+            d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
+          />
         </svg>
-   
-
-
-
-        
       </button>
     </div>
 
@@ -110,6 +109,7 @@
             <th>Nome Empresa</th>
             <th>CPF</th>
             <th>Total de Refeições</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -120,6 +120,13 @@
             <td>{{ relatorio.empresa }}</td>
             <td>{{ relatorio.CPF }}</td>
             <td>{{ relatorio.refeicoes }}</td>
+            <td>  <b-button
+                style="background-color: #16a085"
+                v-b-modal.modal-1
+                @click="id = empresa.id"
+              >
+                <b-icon-check></b-icon-check>
+              </b-button></td>
           </tr>
         </tbody>
       </table>
@@ -128,7 +135,6 @@
 </template>
 
 <script>
-
 export default {
   data: () => ({
     relatorios: [
@@ -145,14 +151,10 @@ export default {
         empresa: 'Empresa',
         CPF: '303.810.860-03',
         refeicoes: '20',
-        
       },
-     
-    ], 
+    ],
   }),
- 
 }
-
 </script>
 
 <style>
