@@ -73,8 +73,6 @@ export default {
 .mt-n1 {
   margin-left: auto !important;
   margin-right: auto !important;
-  justify-content: center !important;
-  align-items: center !important;
   margin-top: 15% !important;
 }
 </style>
