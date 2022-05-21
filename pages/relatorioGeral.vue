@@ -158,12 +158,5 @@ export default {
 </script>
 
 <style>
-.botao {
-  width: 110%;
-}
 
-.dropdown {
-  margin-bottom: 10% !important;
-  width: 84%;
-}
 </style>

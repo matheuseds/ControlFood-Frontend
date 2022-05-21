@@ -67,8 +67,7 @@ export default {
 <style>
 .botao {
   width: 6rem !important;
-  min-width: 150px !important;
-  max-width: 400px !important;
+  min-width: 49% !important;
   margin-top: 2% !important;
 }
 .mt-n1 {
