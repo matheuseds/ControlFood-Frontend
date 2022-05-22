@@ -194,9 +194,11 @@ export default {
     colaboradores: [],
     pesquisa: '',
   }),
+
   async fetch() {
     this.colaboradores = await this.$axios.$get('/colaborador')
   },
+
   computed: {
     colaboradoresFiltrados() {
       return this.colaboradores.filter((colaborador) =>
@@ -204,6 +206,7 @@ export default {
       )
     },
   },
+
   methods: {
     async editarColaborador() {
       await this.$axios.$put(
@@ -212,6 +215,7 @@ export default {
       )
       this.$fetch()
     },
+
     abrirModaldeEdicao(colaborador) {
       this.colaborador = Object.assign({}, colaborador)
     },
@@ -227,6 +231,7 @@ export default {
   },
 }
 </script>
+
 <style>
 .titulo {
   margin-top: 2%;

@@ -98,6 +98,102 @@
           </b-modal>
         </div>
 
+        <b-modal
+          id="modal-editarempresa"
+          title="Editar Empresa"
+          ok-title="Confirmar"
+          cancel-title="Cancelar"
+          @ok="editarEmpresa()"
+        >
+          <div class="form-group">
+            <label for="email">CNPJ:</label>
+            <input
+              v-model="empresa.cnpj"
+              class="form-control"
+              type="number"
+              placeholder="CNPJ"
+              v-maska="'##.###.###/####-##'"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="number">Nome da empresa:</label>
+            <input
+              v-model="empresa.nomeEmpresa"
+              class="form-control"
+              type="text"
+              placeholder="Nome da Empresa"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input
+              v-model="empresa.email"
+              class="form-control"
+              type="email"
+              placeholder="E-mail"
+              required
+            />
+
+            <div class="form-group">
+              <label for="email">Nome do responsável:</label>
+              <input
+                v-model="empresa.nomeResponsavel"
+                class="form-control"
+                type="text"
+                placeholder="Nome da Empresa"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Contato do responsável:</label>
+              <input
+                v-model="empresa.contatoResponsavel"
+                class="form-control"
+                type="text"
+                placeholder="Contato do Responsável"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Endereço:</label>
+              <input
+                v-model="empresa.endereco"
+                class="form-control"
+                type="text"
+                placeholder="Endereço da Empresa"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Cidade:</label>
+              <input
+                v-model="empresa.cidade"
+                class="form-control"
+                type="text"
+                placeholder="Cidade"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Estado:</label>
+              <input
+                v-model="empresa.estado"
+                class="form-control"
+                type="text"
+                placeholder="Estado"
+                required
+              />
+            </div>
+          </div>
+        </b-modal>
+
         <tbody v-for="empresa in empresasFiltradas" :key="empresa.id">
           <tr>
             <td>{{ empresa.id }}</td>
@@ -113,6 +209,14 @@
               >
                 <b-icon-trash></b-icon-trash>
               </b-button>
+
+              <b-button
+                style="background-color: #2980b9"
+                v-b-modal.modal-editarempresa
+                @click="abrirModaldeEdicao(empresa)"
+              >
+                <b-icon-pencil></b-icon-pencil>
+              </b-button>
             </td>
           </tr>
         </tbody>
@@ -124,6 +228,18 @@
 <script>
 export default {
   data: () => ({
+    empresa: {
+      cnpj: '',
+      nomeEmpresa: '',
+      nomeResponsavel: '',
+      email: '',
+      contatoResponsavel: '',
+      endereco: '',
+      cidade: '',
+      estado: '',
+      id: '',
+    },
+
     empresas: [],
     pesquisa: '',
     id: null,
@@ -147,9 +263,19 @@ export default {
 
       this.empresas = filterEmpresas
     },
+
+    async editarEmpresa() {
+      await this.$axios.$put(`/empresa/${this.empresa.id}`, this.empresa)
+      this.$fetch()
+    },
+
+    abrirModaldeEdicao(empresa) {
+      this.empresa = Object.assign({}, empresa)
+    },
   },
 }
 </script>
+
 <style>
 .pesquisa {
   align-items: center;
