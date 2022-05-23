@@ -128,6 +128,18 @@
             </tr>
           </thead>
 
+          <div>
+            <b-modal
+              id="modal-check"
+              title="Confirmar refeição"
+              ok-title="Sim"
+              cancel-title="Não"
+              @ok="confirmarRefeicao()"
+            >
+              <p class="my-4">Confirmar refeição do colaboardor ?</p>
+            </b-modal>
+          </div>
+
           <tbody
             v-for="colaborador in colaboradoresFiltrados"
             :key="colaborador.id"
@@ -138,7 +150,10 @@
               <td class="alinhar">{{ colaborador.cpf }}</td>
               <td>{{ colaborador.nome_empresa }}</td>
               <td>
-                <b-button style="background-color: #16a085">
+                <b-button style="background-color: #16a085"
+                 v-b-modal.modal-check
+                @click="id = colaborador.id"
+                >
                   <b-icon-check></b-icon-check>
                 </b-button>
               </td>
