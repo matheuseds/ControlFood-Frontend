@@ -39,7 +39,7 @@
           </li>
           <li class="nav-item active">
             <NuxtLink to="/relatorioGeral" class="nav-link"
-              >Relatorios</NuxtLink
+              >Relatórios</NuxtLink
             >
           </li>
         </ul>
@@ -108,6 +108,7 @@
             <th>Nome</th>
             <th>Nome Empresa</th>
             <th>CPF</th>
+            <th>Data Última Refeição</th>
             <th>Total de Refeições</th>
             <th></th>
           </tr>
@@ -119,14 +120,8 @@
             <td>{{ relatorio.nome }}</td>
             <td>{{ relatorio.empresa }}</td>
             <td>{{ relatorio.CPF }}</td>
+            <th>{{ relatorio.ultimodia}}</th>
             <td>{{ relatorio.refeicoes }}</td>
-            <td>  <b-button
-                style="background-color: #16a085"
-                v-b-modal.modal-1
-                @click="id = empresa.id"
-              >
-                <b-icon-check></b-icon-check>
-              </b-button></td>
           </tr>
         </tbody>
       </table>
