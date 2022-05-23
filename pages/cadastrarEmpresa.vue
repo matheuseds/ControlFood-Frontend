@@ -155,7 +155,10 @@
 </template>
 
 <script>
+import { maska } from 'maska'
+
 export default {
+  directives: { maska },
   data: () => ({
     empresa: {
       cnpj: '',
