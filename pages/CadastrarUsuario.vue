@@ -32,13 +32,19 @@
 
             <div class="form-group">
               <label class="corTexto">Senha</label>
+
               <input
                 v-model="usuario.senha"
-                type="password"
+                :type="filedType"
                 required
                 class="form-control form-control-lg"
                 placeholder="Password"
               />
+
+                <h6 class="senha" @click="hideShow">
+                 Mostrar senha
+                </h6>
+              
             </div>
 
             <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
@@ -54,6 +60,7 @@
 <script>
 export default {
   data: () => ({
+    filedType: 'password',
     usuario: {
       nome: '',
       email: '',
@@ -65,6 +72,10 @@ export default {
   }),
 
   methods: {
+    hideShow() {
+      this.filedType = this.filedType === 'password' ? 'text' : 'password'
+    },
+
     async cadastro() {
       /**
        * Post = Enviar dados
@@ -89,6 +100,12 @@ export default {
 </script>
 
 <style>
+.senha{
+  cursor: pointer;
+  padding-top: 10px;
+  text-align: right;
+}
+
 .botao {
   width: 6rem;
   min-width: 320px;
