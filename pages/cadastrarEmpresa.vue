@@ -37,7 +37,7 @@
           </li>
           <li class="nav-item active">
             <NuxtLink to="/relatorioGeral" class="nav-link"
-              >Relatorios</NuxtLink
+              >Relatórios</NuxtLink
             >
           </li>
         </ul>
