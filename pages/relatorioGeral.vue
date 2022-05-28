@@ -108,6 +108,7 @@
             <th>Nome</th>
             <th>Nome Empresa</th>
             <th>CPF</th>
+            <th>Data Última Refeição</th>
             <th>Total de Refeições</th>
             <th></th>
           </tr>
