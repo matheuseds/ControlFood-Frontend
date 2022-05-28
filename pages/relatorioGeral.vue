@@ -114,14 +114,15 @@
           </tr>
         </thead>
 
-        <tbody v-for="relatorio in relatorios" :key="relatorio.id">
+        <tbody
+          v-for="colaborador in colaboradoresFiltrados"
+          :key="colaborador.id"
+        >
           <tr>
-            <td>{{ relatorio.id }}</td>
-            <td>{{ relatorio.nome }}</td>
-            <td>{{ relatorio.empresa }}</td>
-            <td>{{ relatorio.CPF }}</td>
-            <th>{{ relatorio.ultimodia}}</th>
-            <td>{{ relatorio.refeicoes }}</td>
+            <td>{{ colaborador.id }}</td>
+            <td>{{ colaborador.nome }}</td>
+            <td>{{ colaborador.nome_empresa }}</td>
+            <td>{{colaborador.cpf}}</td>
           </tr>
         </tbody>
       </table>
@@ -132,26 +133,21 @@
 <script>
 export default {
   data: () => ({
-    relatorios: [
-      {
-        id: 1,
-        nome: 'Nome',
-        empresa: 'Empresa',
-        CPF: '303.810.860-03',
-        refeicoes: '20',
-      },
-      {
-        id: 2,
-        nome: 'Nome',
-        empresa: 'Empresa',
-        CPF: '303.810.860-03',
-        refeicoes: '20',
-      },
-    ],
+    colaboradores:[],
+
+    pesquisa: '',
   }),
+
+  async fetch() {
+    this.colaboradores = await this.$axios.$get('/colaborador')
+  },
+
+  computed: {
+    colaboradoresFiltrados() {
+      return this.colaboradores.filter((colaborador) =>
+        colaborador.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
+      )
+    },
+  },
 }
 </script>
-
-<style>
-
-</style>
