@@ -3,7 +3,9 @@
     <div class="card">
       <div class="card-body mt-n1">
         <form @submit.prevent="login">
-          <h2 class="h3 mb-3 fw-normal text-center corTexto">Faça o Login</h2>
+          <h2 class="h3 mb-3 fw-normal text-center corTexto">
+            Recuperar Senha
+          </h2>
 
           <div class="form-group">
             <label class="corTexto">Email</label>
@@ -17,7 +19,7 @@
           </div>
 
           <div class="form-group">
-            <label class="corTexto">Senha</label>
+            <label class="corTexto">Nova senha</label>
             <input
               v-model="usuario.senha"
               type="password"
@@ -28,12 +30,7 @@
           </div>
 
           <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
-            >Entrar</b-button
-          >
-          <b-button class="w-100 btn btn-lg btn-dark botao">Cadastrar</b-button>
-
-          <NuxtLink to="/recuperarSenha" class="recuperarsenha"
-            >Recuperar senha</NuxtLink
+            >Confirmar</b-button
           >
         </form>
       </div>
@@ -45,24 +42,13 @@
 export default {
   name: 'IndexPage',
   data: () => ({
+    filedType: 'password',
     usuario: {
       email: '',
       senha: '',
     },
   }),
-
-  methods: {
-    async login() {
-      try {
-        await this.$axios.$post('/usuario/login', this.usuario)
-        this.$router.push({ name: 'dashboardSite' })
-      } catch (error) {
-        this.responseColor = 'danger'
-        this.responseMessage = 'Ocorreu um erro'
-        this.showAlert = true
-      }
-    },
-  },
+  
 }
 </script>
 
@@ -70,14 +56,11 @@ export default {
 .recuperarsenha {
   cursor: pointer;
   padding-top: 10px;
-  text-align: right;
+  justify-content: center;
+  display: block;
+  float: right;
 }
 
-.botao {
-  width: 6rem !important;
-  min-width: 49% !important;
-  margin-top: 2% !important;
-}
 .mt-n1 {
   margin-left: auto !important;
   margin-right: auto !important;

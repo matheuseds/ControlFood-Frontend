@@ -41,10 +41,7 @@
                 placeholder="Password"
               />
 
-                <h6 class="senha" @click="hideShow">
-                 Mostrar senha
-                </h6>
-              
+              <h6 class="senha" @click="hideShow">Mostrar senha</h6>
             </div>
 
             <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
@@ -100,7 +97,7 @@ export default {
 </script>
 
 <style>
-.senha{
+.senha {
   cursor: pointer;
   padding-top: 10px;
   text-align: right;
