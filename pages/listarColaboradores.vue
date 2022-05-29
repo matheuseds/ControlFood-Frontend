@@ -74,6 +74,9 @@
 
     <h1 class="titulo">Colaboradores Cadastrados</h1>
     <div class="container">
+      <b-alert :variant="responseColor" :show="showAlert">{{
+        responseMessage
+      }}</b-alert>
       <table class="table">
         <thead class="table-dark">
           <tr>
@@ -193,6 +196,10 @@ export default {
     },
     colaboradores: [],
     pesquisa: '',
+
+    responseColor: null,
+    responseMessage: null,
+    showAlert: false,
   }),
 
   async fetch() {
@@ -213,6 +220,20 @@ export default {
         `/colaborador/${this.colaborador.id}`,
         this.colaborador
       )
+
+      try {
+        const response = await this.$axios.$put(
+          `/colaborador/${this.colaborador.id}`
+        )
+        this.responseColor = 'success'
+        this.responseMessage = response.message
+        this.showAlert = true
+      } catch (error) {
+        this.responseColor = 'danger'
+        this.responseMessage = 'Ocorreu um erro'
+        this.showAlert = true
+      }
+
       this.$fetch()
     },
 
@@ -222,6 +243,18 @@ export default {
 
     async excluirColaborador() {
       await this.$axios.$delete(`/colaborador/${this.id}`)
+
+      try {
+        const response = await this.$axios.$delete(`/colaborador/${this.id}`)
+        this.responseColor = 'success'
+        this.responseMessage = response.message
+        this.showAlert = true
+      } catch (error) {
+        this.responseColor = 'danger'
+        this.responseMessage = 'Ocorreu um erro'
+        this.showAlert = true
+      }
+
       const filterColaboradores = this.colaboradores.filter(
         (colaborador) => colaborador.id !== this.id
       )
