@@ -122,7 +122,6 @@
             <tr>
               <th>Id</th>
               <th>Nome</th>
-              <th>CPF</th>
               <th>Nome Empresa</th>
               <th></th>
             </tr>
@@ -147,7 +146,6 @@
             <tr>
               <td>{{ colaborador.id }}</td>
               <td>{{ colaborador.nome }}</td>
-              <td class="alinhar">{{ colaborador.cpf }}</td>
               <td>{{ colaborador.nome_empresa }}</td>
               <td>
                 <b-button style="background-color: #16a085"

@@ -82,7 +82,6 @@
           <tr>
             <th>Id</th>
             <th>Nome</th>
-            <th>CPF</th>
             <th>Empresa</th>
             <th>E-mail</th>
             <th></th>
@@ -157,7 +156,6 @@
           <tr>
             <td>{{ colaborador.id }}</td>
             <td>{{ colaborador.nome }}</td>
-            <td>{{ colaborador.cpf }}</td>
             <td>{{ colaborador.nome_empresa }}</td>
             <td>{{ colaborador.email }}</td>
             <td>
