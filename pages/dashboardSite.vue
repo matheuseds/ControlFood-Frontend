@@ -42,6 +42,9 @@
               >Relatórios</NuxtLink
             >
           </li>
+          <li>
+            <button @click="logout()">Sair</button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -148,9 +151,10 @@
               <td>{{ colaborador.nome }}</td>
               <td>{{ colaborador.nome_empresa }}</td>
               <td>
-                <b-button style="background-color: #16a085"
-                 v-b-modal.modal-check
-                @click="id = colaborador.id"
+                <b-button
+                  style="background-color: #16a085"
+                  v-b-modal.modal-check
+                  @click="id = colaborador.id"
                 >
                   <b-icon-check></b-icon-check>
                 </b-button>
@@ -179,6 +183,20 @@ export default {
       return this.colaboradores.filter((colaborador) =>
         colaborador.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
       )
+    },
+  },
+  beforeCreate() {
+    // função  para voltar para o login caso não esteja logado
+    const localToken = localStorage.getItem('token')
+    if (!localToken) {
+      this.$router.push({ name: 'index' })
+    }
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem('token')
+      localStorage.removeItem('id')
+      this.$router.push({ name: 'index' })
     },
   },
 }

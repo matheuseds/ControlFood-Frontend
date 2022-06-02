@@ -5,6 +5,10 @@
         <form @submit.prevent="login">
           <h2 class="h3 mb-3 fw-normal text-center corTexto">Faça o Login</h2>
 
+          <b-alert :variant="responseColor" :show="showAlert">{{
+            responseMessage
+          }}</b-alert>
+
           <div class="form-group">
             <label class="corTexto">Email</label>
             <input
@@ -49,12 +53,17 @@ export default {
       email: '',
       senha: '',
     },
+    responseColor: null,
+    responseMessage: null,
+    showAlert: false,
   }),
 
   methods: {
     async login() {
       try {
-        await this.$axios.$post('/usuario/login', this.usuario)
+        const response = await this.$axios.$post('/usuario/login', this.usuario)
+        localStorage.setItem('token', response.token)
+        localStorage.setItem('id', response.id)
         this.$router.push({ name: 'dashboardSite' })
       } catch (error) {
         this.responseColor = 'danger'
