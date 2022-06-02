@@ -107,7 +107,6 @@
             <th>Id</th>
             <th>Nome</th>
             <th>Nome Empresa</th>
-            <th>CPF</th>
             <th>Data Última Refeição</th>
             <th>Total de Refeições</th>
             <th></th>
@@ -122,7 +121,6 @@
             <td>{{ colaborador.id }}</td>
             <td>{{ colaborador.nome }}</td>
             <td>{{ colaborador.nome_empresa }}</td>
-            <td>{{colaborador.cpf}}</td>
           </tr>
         </tbody>
       </table>
@@ -133,7 +131,7 @@
 <script>
 export default {
   data: () => ({
-    colaboradores:[],
+    colaboradores: [],
 
     pesquisa: '',
   }),

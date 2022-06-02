@@ -74,6 +74,9 @@
 
     <h1 class="titulo">Empresas Cadastradas</h1>
     <div class="container">
+      <b-alert :variant="responseColor" :show="showAlert">{{
+        responseMessage
+      }}</b-alert>
       <table class="table">
         <thead class="table-dark">
           <tr>
@@ -243,6 +246,10 @@ export default {
     empresas: [],
     pesquisa: '',
     id: null,
+
+    responseColor: null,
+    responseMessage: null,
+    showAlert: false,
   }),
   async fetch() {
     this.empresas = await this.$axios.$get('/empresa')
@@ -260,6 +267,17 @@ export default {
       const filterEmpresas = this.empresas.filter(
         (empresa) => empresa.id !== this.id
       )
+
+      try {
+        const response = await this.$axios.$delete(`/empresa/${this.id}`)
+        this.responseColor = 'sucess'
+        this.responseMessage = responseMessage
+        this.showAlert = true
+      } catch (error) {
+        this.responseColor = 'danger'
+        this.responseMessage = 'Ocorreu um erro'
+        this.showAlert = true
+      }
 
       this.empresas = filterEmpresas
     },
