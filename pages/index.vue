@@ -1,6 +1,6 @@
 <template>
   <main class="form-signin main">
-    <div class="card">
+    <div class="card mt-n2">
       <div class="card-body mt-n1">
         <form @submit.prevent="login">
           <h2 class="h3 mb-3 fw-normal text-center corTexto">Faça o Login</h2>
@@ -86,6 +86,16 @@ export default {
   width: 6rem !important;
   min-width: 49% !important;
   margin-top: 2% !important;
+}
+
+.mt-n2 {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: none;
+  border: 0;
 }
 .mt-n1 {
   margin-left: auto !important;
