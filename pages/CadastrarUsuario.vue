@@ -97,6 +97,15 @@ export default {
 </script>
 
 <style>
+
+* {
+  font-family: sans-serif; 
+}
+
+.btn-dark{
+  background-color:#009879;
+}
+
 .senha {
   cursor: pointer;
   padding-top: 10px;

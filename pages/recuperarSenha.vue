@@ -53,6 +53,11 @@ export default {
 </script>
 
 <style>
+
+* {
+  font-family: sans-serif; 
+}
+
 .recuperarsenha {
   cursor: pointer;
   padding-top: 10px;
