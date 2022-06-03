@@ -76,6 +76,15 @@ export default {
 </script>
 
 <style>
+
+* {
+  font-family: sans-serif; 
+}
+
+.btn-dark{
+  background-color:#009879;
+}
+
 .recuperarsenha {
   cursor: pointer;
   padding-top: 10px;

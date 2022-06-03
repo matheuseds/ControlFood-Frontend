@@ -1,6 +1,6 @@
 <template>
   <main class="background">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar navbar-expand navbar-dark " style="background-color: #009879;">
       <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
 
       <button
@@ -46,7 +46,7 @@
       </div>
     </nav>
 
-    <div class="container input-group pesquisa">
+    <div class="container input-group pesquisa1">
       <div class="pesquisa">
         <input
           type="search"
@@ -56,20 +56,6 @@
           placeholder="Pesquisar Colaborador"
         />
       </div>
-      <button type="button" class="btn btn-dark">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-search"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-          />
-        </svg>
-      </button>
     </div>
 
     <h1 class="titulo">Colaboradores Cadastrados</h1>
@@ -77,8 +63,10 @@
       <b-alert :variant="responseColor" :show="showAlert">{{
         responseMessage
       }}</b-alert>
-      <table class="table">
-        <thead class="table-dark">
+
+
+      <table class="content-table table" >
+        <thead class="table-dark" >
           <tr>
             <th>Id</th>
             <th>Nome</th>
@@ -160,7 +148,7 @@
             <td>{{ colaborador.email }}</td>
             <td>
               <b-button
-                style="background-color: #b33939"
+                style="background-color: #CF1506"
                 v-b-modal.modal-excluir
                 @click="id = colaborador.id"
               >
@@ -168,7 +156,7 @@
               </b-button>
 
               <b-button
-                style="background-color: #2980b9"
+                style="background-color: #007BFF"
                 v-b-modal.modal-editar
                 @click="abrirModaldeEdicao(colaborador)"
               >
@@ -264,6 +252,11 @@ export default {
 </script>
 
 <style>
+
+* {
+  font-family: sans-serif; 
+}
+
 .titulo {
   margin-top: 2%;
   text-align: center;
@@ -275,10 +268,61 @@ export default {
   margin-top: 2%;
   width: 60%;
 }
+
+.input-group {
+    position: relative;
+    /* display: flex; */
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.pesquisa1 {
+  align-items: center;
+  margin-left: 20%;
+  margin-top: 2%;
+  width: 60%;
+ 
+}
+
 .form-control {
   margin-bottom: 3%;
 }
 .row {
   justify-content: center;
 }
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
 </style>

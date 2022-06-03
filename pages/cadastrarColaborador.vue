@@ -1,6 +1,6 @@
 <template>
   <main class="background">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #009879;">
       <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
 
       <button
@@ -160,6 +160,11 @@ export default {
 </script>
 
 <style>
+
+* {
+  font-family: sans-serif; 
+}
+
 .botao {
   margin-top: 7%;
 }
