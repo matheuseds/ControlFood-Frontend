@@ -111,7 +111,7 @@
 <script>
 export default {
   data: () => ({
-    colaboradores:[],
+    colaboradores: [],
 
     pesquisa: '',
   }),

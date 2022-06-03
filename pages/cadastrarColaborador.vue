@@ -126,6 +126,7 @@ export default {
       nome_empresa: '',
       email: '',
       numero_matricula: '',
+      user_id: parseInt(localStorage.getItem('id')),
     },
     responseColor: null,
     responseMessage: null,
