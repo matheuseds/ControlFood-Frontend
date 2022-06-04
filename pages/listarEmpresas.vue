@@ -70,7 +70,6 @@
         <thead class="table-dark">
           <tr>
             <th>Id</th>
-            <th>CNPJ</th>
             <th>Empresa</th>
             <th>Contato do Responsável</th>
             <th>E-mail</th>
@@ -97,17 +96,6 @@
           cancel-title="Cancelar"
           @ok="editarEmpresa()"
         >
-          <div class="form-group">
-            <label for="email">CNPJ:</label>
-            <input
-              v-model="empresa.cnpj"
-              class="form-control"
-              type="number"
-              placeholder="CNPJ"
-              v-maska="'##.###.###/####-##'"
-              required
-            />
-          </div>
           <div class="form-group">
             <label for="number">Nome da empresa:</label>
             <input
@@ -189,7 +177,6 @@
         <tbody v-for="empresa in empresasFiltradas" :key="empresa.id">
           <tr>
             <td>{{ empresa.id }}</td>
-            <td>{{ empresa.cnpj }}</td>
             <td>{{ empresa.nomeEmpresa }}</td>
             <td>{{ empresa.contatoResponsavel }}</td>
             <td>{{ empresa.email }}</td>
@@ -221,7 +208,6 @@
 export default {
   data: () => ({
     empresa: {
-      cnpj: '',
       nomeEmpresa: '',
       nomeResponsavel: '',
       email: '',
