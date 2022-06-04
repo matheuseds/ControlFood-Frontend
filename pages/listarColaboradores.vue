@@ -107,17 +107,6 @@
               required
             />
           </div>
-          <div class="form-group">
-            <label for="number">CPF:</label>
-            <input
-              v-model="colaborador.cpf"
-              class="form-control"
-              type="text"
-              placeholder="303.810.860-03"
-              v-maska="'###.###.###-##'"
-              required
-            />
-          </div>
 
           <div class="form-group">
             <label for="email">Nome da Empresa:</label>
