@@ -24,21 +24,22 @@
             <label class="corTexto">Senha</label>
             <input
               v-model="usuario.senha"
-              type="password"
+              :type="filedType"
               required
               class="form-control form-control-lg"
               placeholder="Password"
             />
+
+             <h6 class="senha" @click="hideShow2">Mostrar senha</h6>
           </div>
 
           <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
             >Entrar</b-button
           >
+          
           <b-button class="w-100 btn btn-lg btn-dark botao">Cadastrar</b-button>
 
-          <NuxtLink to="/recuperarSenha" class="recuperarsenha"
-            >Recuperar senha</NuxtLink
-          >
+        
         </form>
       </div>
     </div>
@@ -49,6 +50,7 @@
 export default {
   name: 'IndexPage',
   data: () => ({
+    filedType: 'password',
     usuario: {
       email: '',
       senha: '',
@@ -71,6 +73,9 @@ export default {
         this.showAlert = true
       }
     },
+    hideShow2() {
+      this.filedType = this.filedType === 'password' ? 'text' : 'password'
+    },
   },
 }
 </script>
@@ -83,6 +88,12 @@ export default {
 
 .btn-dark{
   background-color:#009879;
+}
+
+.senha {
+  cursor: pointer;
+  padding-top: 10px;
+  text-align: right;
 }
 
 .recuperarsenha {

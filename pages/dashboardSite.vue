@@ -42,8 +42,8 @@
               >Relatórios</NuxtLink
             >
           </li>
-          <li>
-            <button @click="logout()">Sair</button>
+          <li >
+            <button class="botaosair" @click="logout()">Sair</button>
           </li>
         </ul>
       </div>
@@ -213,4 +213,12 @@ export default {
 .icons {
   margin-left: 38%;
 }
+
+.botaosair{
+  background-color: #009879;
+  color: #fff;
+  border:none;
+  padding:27%;
+}
+
 </style>

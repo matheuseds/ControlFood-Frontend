@@ -42,6 +42,9 @@
               >Relatórios</NuxtLink
             >
           </li>
+          <li>
+            <button class="botaosair" @click="logout()">Sair</button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -247,6 +250,11 @@ export default {
 
       this.colaboradores = filterColaboradores
     },
+     logout() {
+      localStorage.removeItem('token')
+      localStorage.removeItem('id')
+      this.$router.push({ name: 'index' })
+    },
   },
 }
 </script>
@@ -324,5 +332,13 @@ export default {
 .content-table tbody tr:last-of-type {
   border-bottom: 2px solid #009879;
 }
+
+.botaosair{
+  background-color: #009879;
+  color: #fff;
+  border:none;
+  padding:27%;
+}
+
 
 </style>

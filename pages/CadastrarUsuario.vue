@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="form-signin main">
-      <div class="card">
+      <div class="card mt-n2">
         <div class="card-body mt-n1 ajustes">
           <form @submit.prevent="cadastro">
             <h2 class="h3 mb-3 fw-normal text-center corTexto">Cadastre-se</h2>
@@ -104,6 +104,16 @@ export default {
 
 .btn-dark{
   background-color:#009879;
+}
+
+.mt-n2 {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: none;
+  border: 0;
 }
 
 .senha {

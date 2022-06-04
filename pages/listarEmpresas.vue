@@ -42,6 +42,9 @@
               >Relatórios</NuxtLink
             >
           </li>
+          <li>
+            <button class="botaosair" @click="logout()">Sair</button>
+          </li>
         </ul>
       </div>
     </nav>
@@ -60,11 +63,10 @@
 
     <h1 class="titulo">Empresas Cadastradas</h1>
     <div class="container">
-      <table  class="content-table table">
       <b-alert :variant="responseColor" :show="showAlert">{{
         responseMessage
       }}</b-alert>
-      <table class="table">
+      <table class="content-table table">
         <thead class="table-dark">
           <tr>
             <th>Id</th>
@@ -255,16 +257,16 @@ export default {
         (empresa) => empresa.id !== this.id
       )
 
-      try {
-        const response = await this.$axios.$delete(`/empresa/${this.id}`)
-        this.responseColor = 'sucess'
-        this.responseMessage = responseMessage
-        this.showAlert = true
-      } catch (error) {
-        this.responseColor = 'danger'
-        this.responseMessage = 'Ocorreu um erro'
-        this.showAlert = true
-      }
+      // try {
+      //   const response = await this.$axios.$delete(`/empresa/${this.id}`)
+      //   this.responseColor = 'sucess'
+      //   this.responseMessage = responseMessage
+      //   this.showAlert = true
+      // } catch (error) {
+      //   this.responseColor = 'danger'
+      //   this.responseMessage = 'Ocorreu um erro'
+      //   this.showAlert = true
+      // }
 
       this.empresas = filterEmpresas
     },
@@ -276,6 +278,11 @@ export default {
 
     abrirModaldeEdicao(empresa) {
       this.empresa = Object.assign({}, empresa)
+    },
+     logout() {
+      localStorage.removeItem('token')
+      localStorage.removeItem('id')
+      this.$router.push({ name: 'index' })
     },
   },
 }
@@ -340,4 +347,12 @@ export default {
 .content-table tbody tr:last-of-type {
   border-bottom: 2px solid #009879;
 }
+
+.botaosair{
+  background-color: #009879;
+  color: #fff;
+  border:none;
+  padding:27%;
+}
+
 </style>
