@@ -49,7 +49,7 @@
       </div>
     </nav>
 
-    <div class="container input-group pesquisa1">
+    <div class="container input-group pesquisa">
       <div class="pesquisa">
         <input
           type="search"
