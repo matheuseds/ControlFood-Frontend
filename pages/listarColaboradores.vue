@@ -204,6 +204,9 @@ export default {
   },
 
   methods: {
+
+  
+
     async editarColaborador() {
       await this.$axios.$put(
         `/colaborador/${this.colaborador.id}`,
