@@ -124,7 +124,7 @@
               cancel-title="Não"
               @ok="confirmarRefeicao()"
             >
-              <p class="my-4">Confirmar refeição do colaboardor ?</p>
+              <p class="my-4">Confirmar refeição do colaborador ?</p>
             </b-modal>
           </div>
 
