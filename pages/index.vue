@@ -63,10 +63,10 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await this.$axios.$post('/usuario/login', this.usuario)
-        localStorage.setItem('token', response.token)
-        localStorage.setItem('id', response.id)
-        this.$router.push({ name: 'dashboardSite' })
+         await this.$axios.$post('/usuario/login', this.usuario)
+        // localStorage.setItem('token', response.token)
+        // localStorage.setItem('id', response.id)
+        this.$router.push({ name: 'duploFator' })
       } catch (error) {
         this.responseColor = 'danger'
         this.responseMessage = 'Ocorreu um erro'

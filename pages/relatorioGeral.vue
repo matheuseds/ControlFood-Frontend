@@ -62,7 +62,7 @@
       <button
         onclick="window.location.reload()"
         type="button"
-        class="btn btn-dark"
+        class="btn btn-dark ml-4"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +126,7 @@ export default {
   computed: {
     colaboradoresFiltrados() {
       return this.colaboradores.filter((colaborador) =>
-        colaborador.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
+        colaborador.nome_empresa.toLowerCase().includes(this.pesquisa.toLowerCase())
       )
     },
   },
