@@ -103,7 +103,7 @@ export default {
   computed: {
     colaboradoresFiltrados() {
       return this.colaboradores.filter((colaborador) =>
-        colaborador.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
+        colaborador.nome_empresa.toLowerCase().includes(this.pesquisa.toLowerCase())
       )
     },
   },

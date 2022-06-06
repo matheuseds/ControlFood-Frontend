@@ -128,8 +128,7 @@ export default {
       cpf: '',
       nome_empresa: '',
       email: '',
-      numero_matricula: '',
-      user_id: parseInt(localStorage.getItem('id')),
+      user_id: localStorage.getItem('token')
     },
     responseColor: null,
     responseMessage: null,
@@ -144,17 +143,24 @@ export default {
        * Patch = Atualizar dados
        * Delete = Excluir dados
        */
-      try {
-        const response = await this.$axios.$post(
+      console.log(this.colaborador.cpf)
+       const response = await this.$axios.$post(
           '/colaborador',
           this.colaborador
         )
-        this.responseColor = 'success'
+      try {
+        if( response.status === 203){
+          this.responseColor = 'danger'
+        }else{
+          this.responseColor = 'success'
+        }
+              
         this.responseMessage = response.message
         this.showAlert = true
       } catch (error) {
+        console.log(error)
         this.responseColor = 'danger'
-        this.responseMessage = 'Ocorreu um erro'
+        this.responseMessage = response.message
         this.showAlert = true
       }
     },
