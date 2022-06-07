@@ -146,7 +146,7 @@
                 </div>
 
                 <div class="form-group text-center">
-                  <button type="submit" class="btn btn-dark">ENVIAR</button>
+                  <button type="submit" class="btn btn-dark">Cadastrar</button>
                 </div>
               </form>
             </div>

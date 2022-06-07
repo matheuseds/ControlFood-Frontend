@@ -1,6 +1,9 @@
 <template>
   <main class="background">
-    <nav class="navbar navbar-expand navbar-dark" style="background-color: #009879;">
+    <nav
+      class="navbar navbar-expand navbar-dark"
+      style="background-color: #009879"
+    >
       <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
 
       <button
@@ -104,7 +107,7 @@
 
                 <div class="container form-group text-center botao">
                   <button type="submit" class="btn btn-dark" required>
-                    ENVIAR
+                    Cadastrar
                   </button>
                 </div>
               </form>
@@ -128,7 +131,7 @@ export default {
       cpf: '',
       nome_empresa: '',
       email: '',
-      user_id: localStorage.getItem('token')
+      user_id: localStorage.getItem('token'),
     },
     responseColor: null,
     responseMessage: null,
@@ -144,17 +147,14 @@ export default {
        * Delete = Excluir dados
        */
       console.log(this.colaborador.cpf)
-       const response = await this.$axios.$post(
-          '/colaborador',
-          this.colaborador
-        )
+      const response = await this.$axios.$post('/colaborador', this.colaborador)
       try {
-        if( response.status === 203){
+        if (response.status === 203) {
           this.responseColor = 'danger'
-        }else{
+        } else {
           this.responseColor = 'success'
         }
-              
+
         this.responseMessage = response.message
         this.showAlert = true
       } catch (error) {
@@ -164,7 +164,7 @@ export default {
         this.showAlert = true
       }
     },
-     logout() {
+    logout() {
       localStorage.removeItem('token')
       localStorage.removeItem('id')
       this.$router.push({ name: 'index' })
@@ -174,9 +174,8 @@ export default {
 </script>
 
 <style>
-
 * {
-  font-family: sans-serif; 
+  font-family: sans-serif;
 }
 
 .botao {
@@ -186,11 +185,10 @@ export default {
   margin-top: 5%;
   justify-content: center;
 }
-.botaosair{
+.botaosair {
   background-color: #009879;
   color: #fff;
-  border:none;
-  padding:27%;
+  border: none;
+  padding: 27%;
 }
-
 </style>
