@@ -87,11 +87,10 @@
       <table class="content-table table">
         <thead class="table-dark">
           <tr>
-            <th>Id</th>
             <th>Nome</th>
             <th>Nome Empresa</th>
-            <th>Data Última Refeição</th>
             <th>Total de Refeições</th>
+            <th>Data última refeição</th>
             <th></th>
           </tr>
         </thead>
@@ -101,9 +100,10 @@
           :key="colaborador.id"
         >
           <tr>
-            <td>{{ colaborador.id }}</td>
             <td>{{ colaborador.nome }}</td>
             <td>{{ colaborador.nome_empresa }}</td>
+            <td>{{ colaborador.qtdref }}</td>
+            <td>{{ colaborador.updatedAt}}</td>
           </tr>
         </tbody>
       </table>

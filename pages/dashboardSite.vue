@@ -1,6 +1,9 @@
 <template>
   <main class="background">
-    <nav class="navbar navbar-expand navbar-dark" style="background-color: #009879;">
+    <nav
+      class="navbar navbar-expand navbar-dark"
+      style="background-color: #009879"
+    >
       <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
 
       <button
@@ -42,7 +45,7 @@
               >Relatórios</NuxtLink
             >
           </li>
-          <li >
+          <li>
             <button class="botaosair" @click="logout()">Sair</button>
           </li>
         </ul>
@@ -122,7 +125,7 @@
               title="Confirmar refeição"
               ok-title="Sim"
               cancel-title="Não"
-              @ok="confirmarRefeicao()"
+              @ok="confirmarRefeicao(id)"
             >
               <p class="my-4">Confirmar refeição do colaborador ?</p>
             </b-modal>
@@ -133,7 +136,7 @@
             :key="colaborador.id"
           >
             <tr>
-              <td>{{ colaborador.id }}</td>
+              <td id="colaborador">{{colaborador.id}}</td>
               <td>{{ colaborador.nome }}</td>
               <td>{{ colaborador.nome_empresa }}</td>
               <td>
@@ -156,10 +159,15 @@
 <script>
 export default {
   data: () => ({
+    colaborador: {
+      id:'',
+    },
+
     empresas: [],
     colaboradores: [],
     pesquisa: '',
   }),
+
   async fetch() {
     this.empresas = await this.$axios.$get('/empresa')
     this.colaboradores = await this.$axios.$get('/colaborador')
@@ -184,14 +192,25 @@ export default {
       localStorage.removeItem('id')
       this.$router.push({ name: 'index' })
     },
+
+    async confirmarRefeicao(id) {
+     try {
+
+       await this.$axios.$post('/colaborador/addref', {id})
+
+      } catch (error) {
+        this.responseColor = 'danger'
+        this.responseMessage = 'Ocorreu um erro'
+        this.showAlert = true
+      }
+    },
   },
 }
 </script>
 
 <style>
-
 * {
-  font-family: sans-serif; 
+  font-family: sans-serif;
 }
 
 .card {
@@ -214,11 +233,10 @@ export default {
   margin-left: 38%;
 }
 
-.botaosair{
+.botaosair {
   background-color: #009879;
   color: #fff;
-  border:none;
-  padding:27%;
+  border: none;
+  padding: 27%;
 }
-
 </style>

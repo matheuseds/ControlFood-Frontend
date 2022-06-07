@@ -243,17 +243,6 @@ export default {
         (empresa) => empresa.id !== this.id
       )
 
-      // try {
-      //   const response = await this.$axios.$delete(`/empresa/${this.id}`)
-      //   this.responseColor = 'sucess'
-      //   this.responseMessage = responseMessage
-      //   this.showAlert = true
-      // } catch (error) {
-      //   this.responseColor = 'danger'
-      //   this.responseMessage = 'Ocorreu um erro'
-      //   this.showAlert = true
-      // }
-
       this.empresas = filterEmpresas
     },
 
