@@ -30,16 +30,14 @@
               placeholder="Password"
             />
 
-             <h6 class="senha" @click="hideShow2">Mostrar senha</h6>
+            <h6 class="senha" @click="hideShow2">Mostrar senha</h6>
           </div>
 
           <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
             >Entrar</b-button
           >
-          
-          <b-button class="w-100 btn btn-lg btn-dark botao">Cadastrar</b-button>
 
-        
+          <b-button href="\CadastrarUsuario" class="w-100 btn btn-lg btn-dark botao" >Cadastrar</b-button>
         </form>
       </div>
     </div>
@@ -63,7 +61,7 @@ export default {
   methods: {
     async login() {
       try {
-         await this.$axios.$post('/usuario/login', this.usuario)
+        await this.$axios.$post('/usuario/login', this.usuario)
         // localStorage.setItem('token', response.token)
         // localStorage.setItem('id', response.id)
         this.$router.push({ name: 'duploFator' })
@@ -81,13 +79,12 @@ export default {
 </script>
 
 <style>
-
 * {
-  font-family: sans-serif; 
+  font-family: sans-serif;
 }
 
-.btn-dark{
-  background-color:#009879;
+.btn-dark {
+  background-color: #009879;
 }
 
 .senha {
