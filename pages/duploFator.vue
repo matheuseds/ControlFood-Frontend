@@ -5,8 +5,6 @@
         <form @submit.prevent="login">
           <h2 class="h3 mb-3 fw-normal text-center corTexto">Autenticação de duplo fator</h2>
 
-
-
           <div class="form-group">
             <label class="corTexto">Token</label>
             <input
@@ -19,8 +17,6 @@
           <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
             >Entrar</b-button
           >
-
-
         </form>
       </div>
     </div>

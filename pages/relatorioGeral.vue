@@ -156,7 +156,7 @@ export default {
         { title: 'Id', dataKey: 'id' },
         { title: 'Nome', dataKey: 'nome' },
         { title: 'Empresa', dataKey: 'nome_empresa' },
-        { title: 'Data Última Refeição', dataKey: 'calvalcante' },
+        { title: 'Data Última Refeição', dataKey: 'updatedAt' },
         { title: 'Total de Refeições', dataKey: 'qtdref' },
       ]
       const doc = jsPDF('p', 'pt')

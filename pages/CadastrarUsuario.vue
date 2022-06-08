@@ -47,6 +47,9 @@
             <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
               >Cadastrar</b-button
             >
+            <b-button class="w-100 btn btn-lg btn-dark botao" href="\"
+              >Acessar login</b-button
+            >
           </form>
         </div>
       </div>
@@ -97,13 +100,12 @@ export default {
 </script>
 
 <style>
-
 * {
-  font-family: sans-serif; 
+  font-family: sans-serif;
 }
 
-.btn-dark{
-  background-color:#009879;
+.btn-dark {
+  background-color: #009879;
 }
 
 .mt-n2 {
@@ -124,7 +126,7 @@ export default {
 
 .botao {
   width: 6rem;
-  min-width: 320px;
+  min-width: 180px;
   max-width: 800px;
   margin-top: 2%;
 }
