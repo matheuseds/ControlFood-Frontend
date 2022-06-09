@@ -1,16 +1,15 @@
 <template>
   <main class="form-signin main">
     <div class="card mt-n2">
-      <div class="card-body mt-n1">
+      <div class="mt-n1">
         <form @submit.prevent="login">
-          <h2 class="h3 mb-3 fw-normal text-center corTexto">Autenticação de duplo fator</h2>
+          <h1>Autenticação de duplo fator</h1>
 
           <div class="form-group">
-            <label class="corTexto">Token</label>
-            <input
+            <input placeholder="Insira o token"
               v-model="usuario.token"
               required
-              class="form-control form-control-lg"
+              class="form-control-2 form-control"
             />
           </div>
 
@@ -55,7 +54,8 @@ export default {
 }
 
 .btn-dark{
-  background-color:#009879;
+   background-color: #e42021;
+   font-family: "WorkSansSemiBold";
 }
 
 

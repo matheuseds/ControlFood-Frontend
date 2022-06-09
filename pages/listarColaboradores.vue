@@ -1,111 +1,66 @@
 <template>
   <main class="background">
-    <nav class="navbar navbar-expand navbar-dark " style="background-color: #009879;">
-      <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExample02"
-        aria-controls="navbarsExample02"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExample02">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
-              >Cadastrar Empresas</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/cadastrarColaborador" class="nav-link"
-              >Cadastrar Colaborador</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/listarColaboradores" class="nav-link"
-              >Listar Colaboradores</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/listarEmpresas" class="nav-link"
-              >Listar Empresas</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/relatorioGeral" class="nav-link"
-              >Relatórios</NuxtLink
-            >
-          </li>
-          <li>
-            <button class="botaosair" @click="logout()">Sair</button>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="container input-group pesquisa">
-      <div class="pesquisa">
-        <input
-          type="search"
-          id="form1"
-          class="form-control"
-          v-model="pesquisa"
-          placeholder="Pesquisar Colaborador"
-        />
-      </div>
+    <div class="container-naosei">
+       <!--menu-->
+       <div class="menu-bar">
+            <div class="py-2">
+          <!--content-->
+          <nav class="mb-3">
+            <b-nav vertical>
+              <div style="text-align:center; margin: 4% 0px 17%;">
+                  <b-img class="img-menu" src="https://designerelite.com.br/images/logo.png" fluid alt="Responsive image"></b-img>
+              </div>
+               <NuxtLink to="/dashboardSite" class="nav-link"
+                >Dashboard</NuxtLink
+              >
+              <NuxtLink to="/cadastrarEmpresa" class="nav-link"
+                >Cadastrar Empresa</NuxtLink
+              >
+              <NuxtLink to="/cadastrarColaborador" class="nav-link"
+                >Cadastrar Colaborador</NuxtLink
+              >
+              <NuxtLink to="/listarColaboradores" class="nav-link menu-active"
+                >Listar Colaboradores</NuxtLink
+              >
+              <NuxtLink to="/listarEmpresas" class="nav-link"
+                >Listar Empresas</NuxtLink
+              >
+              <NuxtLink to="/relatorioGeral" class="nav-link"
+                >Relatório Geral</NuxtLink
+              > <button class="botaosair" @click="logout()">Sair</button>
+            </b-nav>
+          </nav>
+          <!--end content-->
+        </div>
+       </div>
+       <!--end menu-->
+       <!--content-->
+       <div class="container-content">
+          <div class="container" style="width: 89%;">
+        <input type="search" id="form1" class="form-control" v-model="pesquisa"  placeholder="Pesquisar Colaborador" />
     </div>
-
-    <h1 class="titulo">Colaboradores Cadastrados</h1>
     <div class="container">
       <b-alert :variant="responseColor" :show="showAlert">{{
         responseMessage
       }}</b-alert>
 
-
       <table class="content-table table" >
-        <thead class="table-dark" >
-          <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Empresa</th>
-            <th>E-mail</th>
-            <th></th>
-          </tr>
-        </thead>
+        <div class="table-title" style="padding:1px;">
+          <h1>Colaboradores</h1>
+        </div>
+        <!--MODAL EXCLUIR--> 
         <div>
-          <b-modal
-            id="modal-excluir"
-            title="Excluir colaborador"
-            ok-title="Sim"
-            cancel-title="Não"
-            @ok="excluirColaborador()"
-          >
+          <b-modal id="modal-excluir" title="Excluir colaborador"  ok-title="Sim" cancel-title="Não" @ok="excluirColaborador()">
             <p class="my-4">Você deseja excluir este colaborador(a)?</p>
           </b-modal>
         </div>
+        <!--FIM MODAL EXCLUIR-->
+       <!--MODAL EDIT-->
 
-        <b-modal
-          id="modal-editar"
-          title="Editar Colaborador"
-          ok-title="Confirmar"
-          cancel-title="Cancelar"
-          @ok="editarColaborador()"
-        >
+        <b-modal id="modal-editar" title="Editar Colaborador"  ok-title="Confirmar" cancel-title="Cancelar"  @ok="editarColaborador()">
           <div class="form-group">
             <label for="email">Nome:</label>
-            <input
-              v-model="colaborador.nome"
-              class="form-control"
-              type="text"
-              placeholder="Nome"
-              required
-            />
+            <input v-model="colaborador.nome" class="form-control" type="text" placeholder="Nome"  required  />
           </div>
 
           <div class="form-group">
@@ -129,35 +84,43 @@
             />
           </div>
         </b-modal>
-        <tbody
-          v-for="colaborador in colaboradoresFiltrados"
-          :key="colaborador.id"
-        >
-          <tr>
-            <td>{{ colaborador.id }}</td>
-            <td>{{ colaborador.nome }}</td>
-            <td>{{ colaborador.nome_empresa }}</td>
-            <td>{{ colaborador.email }}</td>
-            <td>
-              <b-button
-                style="background-color: #CF1506"
-                v-b-modal.modal-excluir
-                @click="id = colaborador.id"
-              >
-                <b-icon-trash></b-icon-trash>
-              </b-button>
+        <!--FIM MODAL EDIT-->
+        <!--container lista-->
+        <div class="table-container">
 
-              <b-button
-                style="background-color: #007BFF"
-                v-b-modal.modal-editar
-                @click="abrirModaldeEdicao(colaborador)"
-              >
-                <b-icon-pencil></b-icon-pencil>
-              </b-button>
-            </td>
-          </tr>
-        </tbody>
+          <tbody v-for="colaborador in colaboradoresFiltrados"  :key="colaborador.id" >
+            <div class="table-row">
+              <div class="table-id">
+                <h1>{{ colaborador.id }}</h1>
+              </div>
+                <div class="table-user">
+                    <h1>{{ colaborador.nome }}</h1>
+                    <div class="table-user-description">
+                        <p style="margin-right:2%;">{{ colaborador.nome_empresa }}</p>
+                        <p>{{ colaborador.email }}</p>
+                    </div>
+                </div>
+                <div class="table-btn">
+                    <b-button id="btn-edit" class="btn-modal" v-b-modal.modal-editar @click="abrirModaldeEdicao(colaborador)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                      </svg>
+                    </b-button>
+
+                    <b-button class="btn-modal"  v-b-modal.modal-excluir @click="id = colaborador.id">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                      </svg>
+                    </b-button>
+                </div>
+            </div>
+          </tbody>
+        </div>
+        <!--end container lista-->
       </table>
+    </div>
+       </div>
+       <!--end content-->
     </div>
   </main>
 </template>
@@ -250,84 +213,147 @@ export default {
 
 <style>
 
-* {
-  font-family: sans-serif; 
+
+/* geral*/
+@font-face {
+  font-family: "WorkSansRegular";
+  src: url("fontes/WorkSans-Regular.ttf");
+}
+@font-face {
+  font-family: "WorkSansMedium";
+  src: url("fontes/WorkSans-Medium.ttf");
+}
+@font-face {
+  font-family: "WorkSansSemiBold";
+  src: url("fontes/WorkSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "WorkSansBold";
+  src: url("fontes/WorkSans-Bold.ttf");
+}
+html{
+height: 100%;
+}
+h1{ font-family: "WorkSansSemiBold";}
+/*end geral*/
+/*menu*/
+.nav-link {
+  color: #e42021;
+  transition: 0.2s;
+  padding: 5% 10%;
+  font-family:"WorkSansRegular";
+  font-size: 18px;
+}
+.nav-link:hover {
+  color: #e42021;
+  transition: 0.2s;
+  background: #e42021;
+  color: white;
+}
+.menu-active {
+  background: #e42021;
+  color: white !important;
+}
+.btn-secondary{
+background-color:white;
+color:#e42021;
+border: none;
+}
+.btn-secondary:hover{
+  color:rgb(214, 78, 78);
+  background-color:white;
+}
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+    color: #e42021;
+    background-color: white;
+    border: none;
+}
+.img-menu{
+  width:70%;
+}
+/*end menu*/
+/*table*/
+.table-row{
+  width:100%;
+  display:flex;
+   align-items: center;
+   padding: 20px 3%;
+}
+.table-container{
+  overflow-y:scroll;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+}
+.table-id{
+  width: 10%;
+  color:#333030;
 }
 
-.titulo {
-  margin-top: 2%;
-  text-align: center;
-  margin-bottom: 3%;
+.table-title h1{
+  color:white;
+  margin: 0 0 0 3%;
 }
-.pesquisa {
-  align-items: center;
-  margin-left: 20%;
-  margin-top: 2%;
-  width: 60%;
+.table-user{
+ width: 60%;
+ color:#333030;
 }
-
-.input-group {
-    position: relative;
-    /* display: flex; */
-    flex-wrap: wrap;
-    align-items: stretch;
-    width: 100%;
+.table-user h1{
+   font-size: 30px;
+   font-family:"WorkSansSemiBold";
+   margin: 0;
 }
-
-.pesquisa1 {
-  align-items: center;
-  margin-left: 20%;
-  margin-top: 2%;
-  width: 60%;
- 
+.table-user p{
+  font-size: 15px;
+  font-family:"WorkSansRegular";
+   margin: 0;
 }
-
+.table-user-description{
+  display:flex;
+}
+.table-btn{
+  width:40%;
+  text-align: right;
+}
+.btn-modal{
+  color:#333030;
+}
+#btn-edit:hover{
+  color:#0082be !important;
+  transition: 0.2s;
+}
+.btn-secondary:focus, .btn-secondary.focus{
+     background-color: white;
+     color:#333030 !important;
+    border: none;
+    box-shadow: none;
+}
+/*end table*/  
+/*cadastro input*/
 .form-control {
-  margin-bottom: 3%;
+  color: #333030;
+  background-color: #fff;
+  border-bottom: 1px solid #333030 !important;
+  border: 0px solid;
+  border-radius: 0;
+  margin: 10px 0px;
+  font-family: "WorkSansRegular";
+  font-size: 20px;
+  display: block;
+  width: 35%;
+  float: right;
 }
-.row {
-  justify-content: center;
+.form-control:focus{
+  background: #e2e2e2;
+   border: none !important;
 }
-
-.content-table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  min-width: 400px;
-  border-radius: 5px 5px 0 0;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.content-table thead tr {
-  background-color: #009879;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.content-table th,
-.content-table td {
-  padding: 12px 15px;
+.form-group {
+width: 100%;
+padding: 0 1%;
 }
 
-.content-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
+/*end input*/
 
-.content-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-}
-
-.content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-}
-
-.botaosair{
-  background-color: #009879;
-  color: #fff;
-  border:none;
-  padding:27%;
-}
 
 
 </style>

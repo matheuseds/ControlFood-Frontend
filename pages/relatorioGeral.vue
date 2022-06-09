@@ -1,124 +1,117 @@
 <template>
   <main class="background">
-    <nav
-      class="navbar navbar-expand navbar-dark"
-      style="background-color: #009879"
-    >
-      <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExample02"
-        aria-controls="navbarsExample02"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExample02">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
-              >Cadastrar Empresas</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/cadastrarColaborador" class="nav-link"
-              >Cadastrar Colaborador</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/listarColaboradores" class="nav-link"
-              >Listar Colaboradores</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/listarEmpresas" class="nav-link"
-              >Listar Empresas</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/relatorioGeral" class="nav-link"
-              >Relatórios</NuxtLink
-            >
-          </li>
-          <li>
-            <button class="botaosair" @click="logout()">Sair</button>
-          </li>
-        </ul>
+    <div class="container-naosei">
+      <!--menu-->
+      <div class="menu-bar">
+        <div class="py-2">
+          <!--content-->
+          <nav class="mb-3">
+            <b-nav vertical>
+              <div style="text-align: center; margin: 4% 0px 17%">
+                <b-img
+                  class="img-menu"
+                  src="https://designerelite.com.br/images/logo.png"
+                  fluid
+                  alt="Responsive image"
+                ></b-img>
+              </div>
+              <NuxtLink to="/dashboardSite" class="nav-link"
+                >Dashboard</NuxtLink
+              >
+              <NuxtLink to="/cadastrarEmpresa" class="nav-link"
+                >Cadastrar Empresa</NuxtLink
+              >
+              <NuxtLink to="/cadastrarColaborador" class="nav-link"
+                >Cadastrar Colaborador</NuxtLink
+              >
+              <NuxtLink to="/listarColaboradores" class="nav-link"
+                >Listar Colaboradores</NuxtLink
+              >
+              <NuxtLink to="/listarEmpresas" class="nav-link"
+                >Listar Empresas</NuxtLink
+              >
+              <NuxtLink to="/relatorioGeral" class="nav-link menu-active"
+                >Relatório Geral</NuxtLink
+              > <button class="botaosair" @click="logout()">Sair</button>
+            </b-nav>
+          </nav>
+          <!--end content-->
+        </div>
       </div>
-    </nav>
-
-    <div class="container input-group pesquisa">
-      <div class="pesquisa">
-        <input
+      <!--end menu-->
+      <!--content-->
+      <div class="container-content">
+       
+        <div class="container input-group" style="width:90%; margin-bottom:10px;">
+           <input
           type="search"
           id="form1"
           class="form-control"
           v-model="pesquisa"
           placeholder="Pesquisar Empresa"
         />
+
+          <button
+            onclick="window.location.reload()"
+            type="button"
+            class="btn btn-dark ml-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+              />
+              <path
+                d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
+              />
+            </svg>
+          </button>
+
+          <button
+            @click="exportPdf"
+            type="submit"
+            required="required"
+            class="btn btn-dark imprimir"
+          >
+            Imprimir
+          </button>
+        </div>
+
+        <div class="container">
+          <table class="content-table table">
+            <thead class="table-dark">
+              <tr>
+                <th>Nome</th>
+                <th>Nome Empresa</th>
+                <th>Total de Refeições</th>
+                <th>Data última refeição</th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody
+              v-for="colaborador in colaboradoresFiltrados"
+              :key="colaborador.id"
+            >
+              <tr>
+                <td>{{ colaborador.nome }}</td>
+                <td>{{ colaborador.nome_empresa }}</td>
+                <td>{{ colaborador.qtdref }}</td>
+                <td>{{ colaborador.updatedAt }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+       
       </div>
-      <button
-        onclick="window.location.reload()"
-        type="button"
-        class="btn btn-dark ml-2"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-search"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
-          />
-          <path
-            d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
-          />
-        </svg>
-      </button>
-
-      <button
-        @click="exportPdf"
-        type="submit"
-        required="required"
-        class="btn btn-dark imprimir"
-      >
-        Imprimir
-      </button>
-    </div>
-
-    <div class="container">
-      <table class="content-table table">
-        <thead class="table-dark">
-          <tr>
-            <th>Nome</th>
-            <th>Nome Empresa</th>
-            <th>Total de Refeições</th>
-            <th>Data última refeição</th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody
-          v-for="colaborador in colaboradoresFiltrados"
-          :key="colaborador.id"
-        >
-          <tr>
-            <td>{{ colaborador.nome }}</td>
-            <td>{{ colaborador.nome_empresa }}</td>
-            <td>{{ colaborador.qtdref }}</td>
-            <td>{{ colaborador.updatedAt }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <!--end content-->
     </div>
   </main>
 </template>
@@ -129,6 +122,19 @@ import 'jspdf-autotable'
 
 export default {
   data: () => ({
+    variant: 'dark',
+    variants: [
+      'transparent',
+      'white',
+      'light',
+      'dark',
+      'primary',
+      'secondary',
+      'success',
+      'danger',
+      'warning',
+      'info',
+    ],
     colaboradores: [],
 
     pesquisa: '',
@@ -180,9 +186,21 @@ export default {
 * {
   font-family: sans-serif;
 }
-
+/*menu*/
+.nav-link {
+  color: #e42021;
+  transition: 0.2s;
+}
+.nav-link:hover {
+  color: #e42021;
+  transition: 0.2s;
+  background: #e42021;
+  color: white;
+}
+/*end menu*/
 .btn-dark {
-  background-color: #009879;
+  background-color: #e42021;
+  border:none;
 }
 
 .content-table {
@@ -196,7 +214,7 @@ export default {
 }
 
 .content-table thead tr {
-  background-color: #009879;
+  background-color: #e42021;
   color: #ffffff;
   font-weight: bold;
 }
@@ -214,15 +232,18 @@ export default {
   background-color: #f3f3f3;
 }
 
-.content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-}
-
 .botaosair {
-  background-color: #009879;
-  color: #fff;
-  border: none;
-  padding: 27%;
+  color: #e42021;
+  border: none; 
+  background-color: white;
+  padding: 5% 10%;
+    font-family: "WorkSansRegular";
+    font-size: 18px;
+    text-align: left;
+}
+.botaosair:hover{
+  background-color: #fc8585;
+  color:white;
 }
 
 .imprimir {

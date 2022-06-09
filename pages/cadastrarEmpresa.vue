@@ -1,159 +1,103 @@
 <template>
   <main class="background">
-    <nav class="navbar navbar-expand navbar-dark" style="background-color: #009879;">
-      <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExample02"
-        aria-controls="navbarsExample02"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarsExample02">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <NuxtLink to="/cadastrarEmpresa" class="nav-link"
-              >Cadastrar Empresas</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/cadastrarColaborador" class="nav-link"
-              >Cadastrar Colaborador</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/listarColaboradores" class="nav-link"
-              >Listar Colaboradores</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/listarEmpresas" class="nav-link"
-              >Listar Empresas</NuxtLink
-            >
-          </li>
-          <li class="nav-item active">
-            <NuxtLink to="/relatorioGeral" class="nav-link"
-              >Relatórios</NuxtLink
-            >
-          </li>
-          <li>
-            <button class="botaosair" @click="logout()">Sair</button>
-          </li>
-        </ul>
+     <div class="container-naosei">
+         <!--menu-->
+      <div class="menu-bar">
+        <div class="py-2">
+          <!--content-->
+          <nav class="mb-3">
+            <b-nav vertical>
+              <div style="text-align: center; margin: 4% 0px 17%">
+                <b-img
+                  class="img-menu"
+                  src="https://designerelite.com.br/images/logo.png"
+                  fluid
+                  alt="Responsive image"
+                ></b-img>
+              </div>
+              <NuxtLink to="/dashboardSite" class="nav-link"
+                >Dashboard</NuxtLink
+              >
+              <NuxtLink to="/cadastrarEmpresa" class="nav-link menu-active"
+                >Cadastrar Empresa</NuxtLink
+              >
+              <NuxtLink to="/cadastrarColaborador" class="nav-link"
+                >Cadastrar Colaborador</NuxtLink
+              >
+              <NuxtLink to="/listarColaboradores" class="nav-link"
+                >Listar Colaboradores</NuxtLink
+              >
+              <NuxtLink to="/listarEmpresas" class="nav-link  "
+                >Listar Empresas</NuxtLink
+              >
+              <NuxtLink to="/relatorioGeral" class="nav-link"
+                >Relatório Geral</NuxtLink
+              > <button class="botaosair" @click="logout()">Sair</button>
+            </b-nav>
+          </nav>
+          <!--end content-->
+        </div>
       </div>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <div class="card ajustes">
-            <div class="card-body">
-              <h1>Cadastrar Empresa</h1>
+      <!--end menu-->
+       <!--content -->
+       <div class="container-content">
+          <div class="col-md-12" style="width:80%; margin: 0 auto;">
+                <h1 class="title-form">Cadastrar Empresa</h1>
+               </div>
+              <!--FORMULARIO-->
               <form @submit.prevent="cadastro">
                 <b-alert :variant="responseColor" :show="showAlert">{{
                   responseMessage
                 }}</b-alert>
-
-                <div>
-                  <label for="nome">CNPJ:</label>
-                  <input
-                    v-model="empresa.cnpj"
-                    class="form-control"
-                    type="text"
-                    name="nome"
-                    id="cnpj"
-                    placeholder="CNPJ"
-                    v-maska="'##.###.###/####-##'"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email">Nome da empresa:</label>
-                  <input
-                    v-model="empresa.nomeEmpresa"
-                    class="form-control"
-                    type="text"
-                    placeholder="Nome da Empresa"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email">E-mail:</label>
-                  <input
-                    v-model="empresa.email"
-                    class="form-control"
-                    type="email"
-                    placeholder="E-mail"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email">Nome do Responsável:</label>
-                  <input
-                    v-model="empresa.nomeResponsavel"
-                    class="form-control"
-                    type="text"
-                    placeholder="Nome da Empresa"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email">Contato do Responsável:</label>
-                  <input
-                    v-model="empresa.contatoResponsavel"
-                    class="form-control"
-                    type="text"
-                    placeholder="Contato do Responsável"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="inputAddress">Endereço</label>
-                  <input
-                    v-model="empresa.endereco"
-                    type="text"
-                    class="form-control"
-                    placeholder="Rua Major Gote, n° 808"
-                    required
-                  />
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputCity">Cidade</label>
-                    <input
-                      v-model="empresa.cidade"
-                      type="text"
-                      class="form-control"
-                      placeholder="Patos de Minas"
-                      required
-                    />
+                <div class="col-md-12">
+                    <div class="form-group" style="width:25%;">
+                    <input v-model="empresa.cnpj" class="form-control-2 form-control" type="text"  name="nome" id="cnpj" placeholder="CNPJ" v-maska="'##.###.###/####-##'" required/>
                   </div>
-                  <div class="form-group col-md-3">
-                    <label for="inputEstado">Estado</label>
-                    <input
-                      v-model="empresa.estado"
-                      type="text"
-                      class="form-control"
-                      id="estado"
-                      placeholder="MG"
-                      v-maska="'AA'"
-                      required
-                    />
+                </div>
+                <!--linha 1-->
+                <div class="col-md-12" style="display: flex;" >
+                    <div class="form-group">
+                      <input v-model="empresa.nomeEmpresa" class="form-control-2 form-control" type="text" placeholder="Nome da Empresa"  required  />
+                    </div>
+                    <div class="form-group">
+                      <input v-model="empresa.email"  class="form-control-2 form-control" type="email" placeholder="E-mail" required />
                   </div>
                 </div>
 
+                <!--linha 2-->
+                <div class="col-md-12" style="display: flex;" >
+                    <div class="form-group">
+                      <input  v-model="empresa.nomeResponsavel" class="form-control-2 form-control" type="text" placeholder="Nome do Responsável"  required  />
+                    </div>
+                    <div class="form-group">
+                      <input v-model="empresa.contatoResponsavel" class="form-control-2 form-control" type="text" placeholder="Contato do Responsável" required />
+                    </div>
+                </div>
+
+                <!--linha 3-->
+                 <div class="col-md-12" style="display: flex;" >
+                    <div class="col-md-6">
+                     <div class="form-group" style="padding: 0;">
+                          <input v-model="empresa.endereco" type="text" class="form-control-2 form-control"  placeholder="Rua Major Gote, n° 808" required  />
+                      </div>
+                    </div>
+                    <div class="col-md-6" style="display: flex;" >
+                        <div class="form-group" style="padding: 0;">
+                          <input  v-model="empresa.cidade"  type="text" class="form-control-2 form-control"  style="width:97%;" placeholder="Patos de Minas"  required />
+                        </div>
+                       <div class="form-group" style="padding: 0;">
+                          <input v-model="empresa.estado"  type="text" class="form-control-2 form-control" id="estado" placeholder="MG" v-maska="'AA'" required />
+                        </div>
+                    </div>
+                  </div>
                 <div class="form-group text-center">
-                  <button type="submit" class="btn btn-dark">Cadastrar</button>
+                  <button type="submit" class="btn btn-red">Cadastrar</button>
                 </div>
               </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+               <!--end FORMULARIO-->
+       </div>
+       <!--end content -->
+     </div>
   </main>
 </template>
 
@@ -199,7 +143,7 @@ export default {
         this.showAlert = true
       }
     },
-     logout() {
+    logout() {
       localStorage.removeItem('token')
       localStorage.removeItem('id')
       this.$router.push({ name: 'index' })
@@ -209,23 +153,103 @@ export default {
 </script>
 
 <style>
-
 * {
-  font-family: sans-serif; 
+  font-family: sans-serif;
 }
+/* geral*/
+@font-face {
+  font-family: "WorkSansRegular";
+  src: url("fontes/WorkSans-Regular.ttf");
+}
+@font-face {
+  font-family: "WorkSansMedium";
+  src: url("fontes/WorkSans-Medium.ttf");
+}
+@font-face {
+  font-family: "WorkSansSemiBold";
+  src: url("fontes/WorkSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "WorkSansBold";
+  src: url("fontes/WorkSans-Bold.ttf");
+}
+html{
+height: 100%;
+}
+h1{ font-family: "WorkSansSemiBold";}
+/*end geral*/
+/*menu*/
+.nav-link {
+  color: #e42021;
+  transition: 0.2s;
+  padding: 5% 10%;
+  font-family:"WorkSansRegular";
+  font-size: 18px;
+}
+.nav-link:hover {
+  color: #e42021;
+  transition: 0.2s;
+  background: #e42021;
+  color: white;
+}
+.menu-active {
+  background: #e42021;
+  color: white !important;
+}
+.btn-secondary{
+background-color:white;
+color:#e42021;
+border: none;
+}
+.btn-secondary:hover{
+  color:rgb(214, 78, 78);
+  background-color:white;
+}
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+    color: #e42021;
+    background-color: white;
+    border: none;
+}
+.btn-secondary:focus, .btn-secondary.focus{
+     background-color: white;
+     color:#343a40 !important;
+    border: none;
+    box-shadow: none;
+}
+.img-menu{
+  width:70%;
+}
+/*end menu*/
 
-.row {
-  margin-top: 3%;
-  justify-content: center;
+/*cadastro empresa*/
+.form-group {
+width: 100%;
+padding: 0 1%;
 }
-.ajustes {
-  margin-bottom: 12%;
+.btn-red{
+   background-color:#e42021;
+   padding: 10px 3%;
+   border-radius: 100px;
+   color: white;
+   transition:0.2s;
+   float: right;
+   font-family: "WorkSansSemiBold";
+   font-size: 18px;
+   border:none;
 }
-.botaosair{
-  background-color: #009879;
-  color: #fff;
-  border:none;
-  padding:27%;
+.btn-red:hover{
+  color: white;
+
+  background-color: #fc8585;
+  transition:0.2s;
 }
+.title-form{
+      padding-left: 1.5%;
+}
+form{ 
+    width: 80%;
+    margin: 7% auto 0;
+}
+/*end cadastro empresa*/
 
 </style>

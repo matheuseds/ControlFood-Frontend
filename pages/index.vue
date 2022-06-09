@@ -1,35 +1,28 @@
 <template>
   <main class="form-signin main">
-    <div class="card mt-n2">
-      <div class="card-body mt-n1">
+    <div class=" mt-n2">
+      <div class="mt-n1" style="width: 50%;">
         <form @submit.prevent="login">
-          <h2 class="h3 mb-3 fw-normal text-center corTexto">Faça o Login</h2>
+           <div style="text-align: center; margin: 4% 0;">
+                <b-img
+                  class="img-menu"
+                  src="https://designerelite.com.br/images/logo.png"
+                  fluid
+                  alt="Responsive image"
+                ></b-img>
+              </div>
 
           <b-alert :variant="responseColor" :show="showAlert">{{
             responseMessage
           }}</b-alert>
 
           <div class="form-group">
-            <label class="corTexto">Email</label>
             <input
-              v-model="usuario.email"
-              type="email"
-              required
-              class="form-control form-control-lg"
-              placeholder="Email"
-            />
+              v-model="usuario.email" type="email"  required class="form-control-2 form-control" placeholder="Email" />
           </div>
 
           <div class="form-group">
-            <label class="corTexto">Senha</label>
-            <input
-              v-model="usuario.senha"
-              :type="filedType"
-              required
-              class="form-control form-control-lg"
-              placeholder="Password"
-            />
-
+            <input v-model="usuario.senha" :type="filedType"  required class="form-control-2 form-control"  placeholder="Password"  />
             <h6 class="senha" @click="hideShow2">Mostrar senha</h6>
           </div>
 
@@ -53,7 +46,7 @@ export default {
       email: '',
       senha: '',
     },
-    responseColor: null,
+    responseColor: null,    
     responseMessage: null,
     showAlert: false,
   }),
@@ -103,6 +96,15 @@ export default {
   width: 6rem !important;
   min-width: 49% !important;
   margin-top: 2% !important;
+  background-color: #e42021;
+  border:none;
+  color:white !important;
+  font-family:"WorkSansMedium";
+  border-radius:100px;
+}
+.botao:hover{
+  color:white;
+  background-color: #fc8585;
 }
 
 .mt-n2 {
@@ -119,4 +121,43 @@ export default {
   margin-right: auto !important;
   margin-top: 15% !important;
 }
+.form-control-2 {
+  width:100% !important;
+  color: #333030;
+  background-color: #fff;
+  border-bottom: 1px solid #333030 !important;
+  border: 0px solid;
+  border-radius: 0;
+  margin: 10px 0px;
+  font-family: "WorkSansRegular";
+  font-size: 20px;
+}
+.form-control-2:focus{
+  background: #e2e2e2;
+   border: none !important;
+}
+/* geral*/
+@font-face {
+  font-family: "WorkSansRegular";
+  src: url("fontes/WorkSans-Regular.ttf");
+}
+@font-face {
+  font-family: "WorkSansMedium";
+  src: url("fontes/WorkSans-Medium.ttf");
+}
+@font-face {
+  font-family: "WorkSansSemiBold";
+  src: url("fontes/WorkSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "WorkSansBold";
+  src: url("fontes/WorkSans-Bold.ttf");
+}
+html{
+height: 100%;
+}
+h1{ 
+  font-family: "WorkSansSemiBold";
+  }
+/*end geral*/
 </style>
