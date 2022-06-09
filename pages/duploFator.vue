@@ -4,7 +4,6 @@
       <div class="card-body mt-n1">
         <form @submit.prevent="login">
           <h2 class="h3 mb-3 fw-normal text-center corTexto title"> Foi enviado um código para <br> seu e-mail</h2>
-
           <div class="form-group">
             <label class="corTexto">Token</label>
             <input
@@ -13,7 +12,6 @@
               class="form-control form-control-lg"
             />
           </div>
-
           <b-button class="w-100 btn btn-lg btn-dark botao" type="submit"
             >Entrar</b-button
           >
