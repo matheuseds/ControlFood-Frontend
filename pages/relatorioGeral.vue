@@ -115,7 +115,7 @@
             <td>{{ colaborador.nome }}</td>
             <td>{{ colaborador.nome_empresa }}</td>
             <td>{{ colaborador.qtdref }}</td>
-            <td>{{ colaborador.updatedAt }}</td>
+            <td>{{ new Date(colaborador.updatedAt).toLocaleString()}}</td>
           </tr>
         </tbody>
       </table>
