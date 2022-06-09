@@ -1,6 +1,9 @@
 <template>
   <main class="background">
-    <nav class="navbar navbar-expand navbar-dark" style="background-color: #009879;">
+    <nav
+      class="navbar navbar-expand navbar-dark"
+      style="background-color: #009879"
+    >
       <NuxtLink to="/dashboardSite" class="navbar-brand">Control Food</NuxtLink>
 
       <button
@@ -66,6 +69,7 @@
       <b-alert :variant="responseColor" :show="showAlert">{{
         responseMessage
       }}</b-alert>
+
       <table class="content-table table">
         <thead class="table-dark">
           <tr>
@@ -182,7 +186,7 @@
             <td>{{ empresa.email }}</td>
             <td>
               <b-button
-                style="background-color: #CF1506"
+                style="background-color: #cf1506"
                 v-b-modal.modal-1
                 @click="id = empresa.id"
               >
@@ -190,7 +194,7 @@
               </b-button>
 
               <b-button
-                style="background-color: #007BFF"
+                style="background-color: #007bff"
                 v-b-modal.modal-editarempresa
                 @click="abrirModaldeEdicao(empresa)"
               >
@@ -239,6 +243,18 @@ export default {
   methods: {
     async excluirEmpresa() {
       await this.$axios.$delete(`/empresa/${this.id}`)
+
+      try {
+        const response = await this.$axios.$delete(`/empresa/${this.id}`)
+        this.responseColor = 'success'
+        this.responseMessage = response.message
+        this.showAlert = true
+      } catch (error) {
+        this.responseColor = 'danger'
+        this.responseMessage = 'Ocorreu um erro'
+        this.showAlert = true
+      }
+
       const filterEmpresas = this.empresas.filter(
         (empresa) => empresa.id !== this.id
       )
@@ -248,13 +264,25 @@ export default {
 
     async editarEmpresa() {
       await this.$axios.$put(`/empresa/${this.empresa.id}`, this.empresa)
+
+      try {
+        const response = await this.$axios.$put(`/empresa/${this.empresa.id}`)
+        this.responseColor = 'success'
+        this.responseMessage = response.message
+        this.showAlert = true
+      } catch (error) {
+        this.responseColor = 'danger'
+        this.responseMessage = 'Ocorreu um erro'
+        this.showAlert = true
+      }
+
       this.$fetch()
     },
 
     abrirModaldeEdicao(empresa) {
       this.empresa = Object.assign({}, empresa)
     },
-     logout() {
+    logout() {
       localStorage.removeItem('token')
       localStorage.removeItem('id')
       this.$router.push({ name: 'index' })
@@ -264,17 +292,16 @@ export default {
 </script>
 
 <style>
-
 * {
-  font-family: sans-serif; 
+  font-family: sans-serif;
 }
 
 .input-group {
-    position: relative;
-    /* display: flex; */
-    flex-wrap: wrap;
-    align-items: stretch;
-    width: 100%;
+  position: relative;
+  /* display: flex; */
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
 }
 
 .pesquisa {
@@ -323,11 +350,10 @@ export default {
   border-bottom: 2px solid #009879;
 }
 
-.botaosair{
+.botaosair {
   background-color: #009879;
   color: #fff;
-  border:none;
-  padding:27%;
+  border: none;
+  padding: 27%;
 }
-
 </style>
