@@ -3,7 +3,7 @@
     <div class="card mt-n2">
       <div class="card-body mt-n1">
         <form @submit.prevent="login">
-          <h2 class="h3 mb-3 fw-normal text-center corTexto">Autenticação de duplo fator</h2>
+          <h2 class="h3 mb-3 fw-normal text-center corTexto title"> Foi enviado um código para <br> seu e-mail</h2>
 
           <div class="form-group">
             <label class="corTexto">Token</label>
@@ -54,10 +54,13 @@ export default {
   font-family: sans-serif; 
 }
 
+.title{
+font-size: 26px;
+}
+
 .btn-dark{
   background-color:#009879;
 }
-
 
 .mt-n2 {
   display: flex;
