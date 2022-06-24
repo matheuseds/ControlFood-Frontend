@@ -104,7 +104,7 @@
                 <td>{{ colaborador.nome }}</td>
                 <td>{{ colaborador.nome_empresa }}</td>
                 <td>{{ colaborador.qtdref }}</td>
-                <td>{{ colaborador.updatedAt }}</td>
+                <td>{{ new Date (colaborador.updatedAt).toLocaleString() }}</td>
               </tr>
             </tbody>
           </table>
@@ -162,13 +162,12 @@ export default {
         { title: 'Id', dataKey: 'id' },
         { title: 'Nome', dataKey: 'nome' },
         { title: 'Empresa', dataKey: 'nome_empresa' },
-        { title: 'Data Última Refeição', dataKey: 'updatedAt' },
         { title: 'Total de Refeições', dataKey: 'qtdref' },
       ]
       const doc = jsPDF('p', 'pt')
       doc.text('Relatório Geral', 30, 20)
       doc.autoTable(columns, vm.colaboradoresFiltrados, {
-        theme: 'grid',
+        theme: 'striped',
       })
       doc.save('Relatório Geral .pdf')
     },
@@ -183,6 +182,24 @@ export default {
 </script>
 
 <style>
+
+@font-face {
+  font-family: "WorkSansRegular";
+  src: url("fontes/WorkSans-Regular.ttf");
+}
+@font-face {
+  font-family: "WorkSansMedium";
+  src: url("fontes/WorkSans-Medium.ttf");
+}
+@font-face {
+  font-family: "WorkSansSemiBold";
+  src: url("fontes/WorkSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "WorkSansBold";
+  src: url("fontes/WorkSans-Bold.ttf");
+}
+
 * {
   font-family: sans-serif;
 }
@@ -248,5 +265,9 @@ export default {
 
 .imprimir {
   margin-left: 1%;
+}
+
+.table-dark{
+  font-size: "WorkSansMedium";
 }
 </style>

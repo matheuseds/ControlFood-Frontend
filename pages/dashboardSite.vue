@@ -198,6 +198,24 @@ export default {
 </script>
 
 <style>
+
+@font-face {
+  font-family: "WorkSansRegular";
+  src: url("fontes/WorkSans-Regular.ttf");
+}
+@font-face {
+  font-family: "WorkSansMedium";
+  src: url("fontes/WorkSans-Medium.ttf");
+}
+@font-face {
+  font-family: "WorkSansSemiBold";
+  src: url("fontes/WorkSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: "WorkSansBold";
+  src: url("fontes/WorkSans-Bold.ttf");
+}
+
 * {
   font-family: sans-serif;
 }
@@ -216,6 +234,11 @@ export default {
 .card-text {
   text-align: center;
   font-weight: bold;
+}
+
+.card-title {
+  font-size:  "WorkSansMedium";
+  font-weight: bolder;
 }
 
 .icons {

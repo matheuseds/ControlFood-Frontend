@@ -86,8 +86,7 @@
         </b-modal>
         <!--FIM MODAL EDIT-->
         <!--container lista-->
-        <div class="table-container">
-
+        <div class="table-container">         
           <tbody v-for="colaborador in colaboradoresFiltrados"  :key="colaborador.id" >
             <div class="table-row">
               <div class="table-id">
