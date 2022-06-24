@@ -87,7 +87,7 @@
         <div class="container">
           <table class="content-table table">
             <thead class="table-dark">
-              <tr>
+              <tr >
                 <th>Nome</th>
                 <th>Nome Empresa</th>
                 <th>Total de Refeições</th>
@@ -100,7 +100,7 @@
               v-for="colaborador in colaboradoresFiltrados"
               :key="colaborador.id"
             >
-              <tr>
+              <tr >
                 <td>{{ colaborador.nome }}</td>
                 <td>{{ colaborador.nome_empresa }}</td>
                 <td>{{ colaborador.qtdref }}</td>
