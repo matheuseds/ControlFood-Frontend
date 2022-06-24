@@ -58,26 +58,26 @@
        <!--MODAL EDIT-->
 
         <b-modal id="modal-editar" title="Editar Colaborador"  ok-title="Confirmar" cancel-title="Cancelar"  @ok="editarColaborador()">
-          <div class="form-group">
+          <div >
             <label for="email">Nome:</label>
-            <input v-model="colaborador.nome" class="form-control" type="text" placeholder="Nome"  required  />
+            <input v-model="colaborador.nome"  type="text" placeholder="Nome"  required  />
           </div>
 
-          <div class="form-group">
+          <div >
             <label for="email">Nome da Empresa:</label>
             <input
               v-model="colaborador.nome_empresa"
-              class="form-control"
+              
               type="text"
               placeholder="Nome da Empresa"
               required
             />
           </div>
-          <div class="form-group">
+          <div >
             <label for="email">E-mail:</label>
             <input
               v-model="colaborador.email"
-              class="form-control"
+              
               type="email"
               placeholder="E-mail"
               required

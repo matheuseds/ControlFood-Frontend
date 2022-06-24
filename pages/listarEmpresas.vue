@@ -54,37 +54,37 @@
        <!--FIM MODAL EXCLUIR-->
        <!--MODAL EDIT-->
         <b-modal id="modal-editarempresa" title="Editar Empresa" ok-title="Confirmar"  cancel-title="Cancelar" @ok="editarEmpresa()" >
-          <div class="form-group">
+          <div >
             <label for="number">Nome da empresa:</label>
-            <input  v-model="empresa.nomeEmpresa"  class="form-control"  type="text" placeholder="Nome da Empresa" required />
+            <input  v-model="empresa.nomeEmpresa"    type="text" placeholder="Nome da Empresa" required />
           </div>
-          <div class="form-group">
+          <div >
             <label for="email">E-mail:</label>
-            <input v-model="empresa.email"  class="form-control" type="email" placeholder="E-mail" required />
+            <input v-model="empresa.email"  type="email" placeholder="E-mail" required />
 
-            <div class="form-group">
+            <div >
               <label for="email">Nome do responsável:</label>
-              <input v-model="empresa.nomeResponsavel"  class="form-control" type="text" placeholder="Nome da Empresa"  required  />
+              <input v-model="empresa.nomeResponsavel"   type="text" placeholder="Nome da Empresa"  required  />
             </div>
 
-            <div class="form-group">
+            <div >
               <label for="email">Contato do responsável:</label>
-              <input v-model="empresa.contatoResponsavel"  class="form-control" type="text" placeholder="Contato do Responsável"  required />
+              <input v-model="empresa.contatoResponsavel"   type="text" placeholder="Contato do Responsável"  required />
             </div>
 
-            <div class="form-group">
+            <div >
               <label for="email">Endereço:</label>
-              <input  v-model="empresa.endereco" class="form-control" type="text" placeholder="Endereço da Empresa"  required />
+              <input  v-model="empresa.endereco"  type="text" placeholder="Endereço da Empresa"  required />
             </div>
 
-            <div class="form-group">
+            <div >
               <label for="email">Cidade:</label>
-              <input  v-model="empresa.cidade" class="form-control"  type="text" placeholder="Cidade"  required />
+              <input  v-model="empresa.cidade"   type="text" placeholder="Cidade"  required />
             </div>
 
-            <div class="form-group">
+            <div>
               <label for="email">Estado:</label>
-              <input  v-model="empresa.estado"  class="form-control"  type="text" placeholder="Estado"  required />
+              <input  v-model="empresa.estado"    type="text" placeholder="Estado"  required />
             </div>
           </div>
         </b-modal>
