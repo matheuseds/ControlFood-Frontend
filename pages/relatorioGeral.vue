@@ -259,7 +259,7 @@ export default {
     text-align: left;
 }
 .botaosair:hover{
-  background-color: #fc8585;
+  background-color: #e42021;
   color:white;
 }
 
